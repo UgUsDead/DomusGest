@@ -1,0 +1,7 @@
+# https://www.robotstxt.org/robotstxt.html
+# Allow all web crawlers to access all content
+User-agent: *
+Allow: /
+
+# Point crawlers to the sitemap
+Sitemap: https://www.yourdomain.com/sitemap.xml

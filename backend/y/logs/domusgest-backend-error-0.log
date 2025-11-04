@@ -1,0 +1,3 @@
+⚠️ firebase-admin not available. Push notifications will be disabled until the dependency is installed. Cannot find module 'firebase-admin'
+Require stack:
+- C:\DomusGest\backend\server.js
