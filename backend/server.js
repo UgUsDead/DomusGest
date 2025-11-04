@@ -133,6 +133,31 @@ const uploadImages = multer({
   }
 });
 
+// Multer for CSV imports (accept common CSV mime types)
+const csvStorage = multer.diskStorage({
+  destination: (req, file, cb) => cb(null, uploadsDir),
+  filename: (req, file, cb) => {
+    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+    const ext = path.extname(file.originalname) || '.csv';
+    cb(null, 'import-' + uniqueSuffix + ext);
+  }
+});
+
+const uploadCsv = multer({
+  storage: csvStorage,
+  limits: { fileSize: 10 * 1024 * 1024 },
+  fileFilter: (req, file, cb) => {
+    const allowed = [
+      'text/csv',
+      'application/vnd.ms-excel',
+      'application/octet-stream',
+      'text/plain'
+    ];
+    if (allowed.includes(file.mimetype)) cb(null, true);
+    else cb(new Error('Only CSV files are allowed'), false);
+  }
+});
+
 // Serve uploaded files
 app.use('/uploads', express.static(uploadsDir));
 
@@ -326,6 +351,21 @@ function initializeDatabase() {
     }
   });
 
+  // Runtime migration: ensure users.must_change_password exists (default 1)
+  db.all("PRAGMA table_info('users')", [], (err, rows) => {
+    if (err) {
+      console.error('Error reading users table info for migration:', err.message);
+      return;
+    }
+    const cols = (rows || []).map(r => r.name);
+    if (!cols.includes('must_change_password')) {
+      db.run("ALTER TABLE users ADD COLUMN must_change_password INTEGER DEFAULT 1", [], (alterErr) => {
+        if (alterErr) console.error('Error adding must_change_password to users:', alterErr.message);
+        else console.log('✅ Added must_change_password column to users table (default 1)');
+      });
+    }
+  });
+
   db.run(createAdminsTable, (err) => {
     if (err) {
       console.error('Error creating admins table:', err.message);
@@ -476,6 +516,66 @@ function initializeDatabase() {
     }
   });
 
+  // App meta table to track one-time migrations
+  const createAppMeta = `
+    CREATE TABLE IF NOT EXISTS app_meta (
+      key TEXT PRIMARY KEY,
+      value TEXT,
+      created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+    )
+  `;
+  db.run(createAppMeta, (err) => {
+    if (err) console.error('Error creating app_meta table:', err.message);
+    else console.log('✅ app_meta table ready');
+  });
+
+  // One-time migration: reset all user passwords to hash(NIF) and force change on next login
+  performPasswordResetToNifIfNeeded();
+
+
+// One-time migration helper
+async function performPasswordResetToNifIfNeeded() {
+  try {
+    const metaKey = 'password_reset_to_nif_2025_11_04';
+    const already = await new Promise((resolve) => {
+      db.get('SELECT value FROM app_meta WHERE key = ?', [metaKey], (err, row) => {
+        if (err) return resolve(false);
+        resolve(!!row);
+      });
+    });
+    if (already) {
+      console.log('ℹ️ Password reset to NIF migration already applied');
+      return;
+    }
+
+    console.log('🔐 Running one-time migration: resetting all user passwords to hash(NIF) and enabling must_change_password...');
+    const users = await new Promise((resolve, reject) => {
+      db.all("SELECT id, nif FROM users WHERE nif IS NOT NULL AND TRIM(nif) != ''", [], (err, rows) => {
+        if (err) return reject(err);
+        resolve(rows || []);
+      });
+    });
+
+    for (const u of users) {
+      try {
+        const nifStr = String(u.nif).trim();
+        const hashed = await bcrypt.hash(nifStr, 10);
+        await new Promise((resolve) => {
+          db.run('UPDATE users SET password = ?, must_change_password = 1, updated_at = CURRENT_TIMESTAMP WHERE id = ?', [hashed, u.id], () => resolve());
+        });
+      } catch (e) {
+        console.error('Error hashing NIF for user', u && u.id, e && e.message);
+      }
+    }
+
+    await new Promise((resolve) => {
+      db.run('INSERT OR REPLACE INTO app_meta (key, value) VALUES (?, ?)', [metaKey, 'done'], () => resolve());
+    });
+    console.log('✅ Password reset migration completed for', users.length, 'users');
+  } catch (e) {
+    console.error('Password reset to NIF migration failed:', e && e.message);
+  }
+}
   // Create admin notes table
   const createAdminNotesTable = `
     CREATE TABLE IF NOT EXISTS admin_notes (
@@ -1924,7 +2024,9 @@ app.post('/api/login', (req, res) => {
             'Data de alteração': user.data_alteracao,
             Telemovel: user.telemovel, // Alternative format without accent
             created_at: user.created_at,
-            updated_at: user.updated_at
+            updated_at: user.updated_at,
+            must_change_password: Number(user.must_change_password) === 1,
+            mustChangePassword: Number(user.must_change_password) === 1
           };
           
           console.log(`✅ User login successful: ${user.nome} (NIF: ${user.nif}) with ${condominiums.length} condominium(s)`);
@@ -1985,7 +2087,7 @@ app.post('/api/change-password', async (req, res) => {
       const hashedNewPassword = await bcrypt.hash(newPassword, 10);
       
       // Update password in database
-      const updateSql = 'UPDATE users SET password = ?, updated_at = CURRENT_TIMESTAMP WHERE nif = ?';
+      const updateSql = 'UPDATE users SET password = ?, must_change_password = 0, updated_at = CURRENT_TIMESTAMP WHERE nif = ?';
       db.run(updateSql, [hashedNewPassword, nif.toString().trim()], function(err) {
         if (err) {
           console.error('Error updating password:', err.message);
@@ -2007,11 +2109,12 @@ app.post('/api/change-password', async (req, res) => {
 });
 
 // Add user endpoint (for importing from CSV)
-app.post('/api/users', (req, res) => {
+app.post('/api/users', async (req, res) => {
   const {
     grupo, nome, nif, telemovel, telefone, permite_telefone,
     email1, email2, email3, permite_email, conjuge,
-    data_criacao, data_alteracao, password
+    data_criacao, data_alteracao, password,
+    condominium_id, condominiumId, apartment
   } = req.body;
 
   // Only NIF is mandatory; default nome and password if not provided
@@ -2019,28 +2122,35 @@ app.post('/api/users', (req, res) => {
     return res.status(400).json({ error: 'NIF é obrigatório' });
   }
   const finalNome = nome && nome.trim() ? nome.trim() : `Morador ${nif}`;
-  const finalPassword = password && password.trim() ? password : '123456';
+  const rawPassword = (password && password.trim()) ? password.trim() : (nif ? nif.toString().trim() : '');
+  let hashedPassword = null;
+  try {
+    hashedPassword = await bcrypt.hash(rawPassword || '', 10);
+  } catch (e) {
+    console.error('Error hashing password for new user:', e && e.message);
+  }
+  const condoId = Number(condominium_id ?? condominiumId ?? NaN);
 
   const sql = `
     INSERT INTO users (
       grupo, nome, nif, telemovel, telefone, permite_telefone,
       email1, email2, email3, permite_email, conjuge,
-      data_criacao, data_alteracao, password
-    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+      data_criacao, data_alteracao, password, must_change_password
+    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1)
   `;
 
   const values = [
     grupo, finalNome, nif.toString().trim(), telemovel, telefone, permite_telefone,
     email1, email2, email3, permite_email, conjuge,
-    data_criacao, data_alteracao, finalPassword
+    data_criacao, data_alteracao, hashedPassword || rawPassword
   ];
 
   db.run(sql, values, function(err) {
     if (err) {
       console.error('Error inserting user (full schema):', err.message);
       // Fallback: try minimal insert for older DB schemas
-      const fallbackSql = `INSERT OR IGNORE INTO users (nome, nif, telemovel, telefone, password) VALUES (?, ?, ?, ?, ?)`;
-      const fbValues = [nome, nif.toString().trim(), telemovel || '', telefone || '', password || '123456'];
+  const fallbackSql = `INSERT OR IGNORE INTO users (nome, nif, telemovel, telefone, password) VALUES (?, ?, ?, ?, ?)`;
+  const fbValues = [nome, nif.toString().trim(), telemovel || '', telefone || '', (hashedPassword || rawPassword || '')];
       db.run(fallbackSql, fbValues, function(fbErr) {
         if (fbErr) {
           if (fbErr.message && fbErr.message.includes('UNIQUE constraint failed')) {
@@ -2049,16 +2159,37 @@ app.post('/api/users', (req, res) => {
           console.error('Fallback insert also failed:', fbErr.message);
           return res.status(500).json({ error: 'Erro ao criar utilizador' });
         }
-        console.log(`User created with ID (fallback): ${this.lastID}`);
-        return res.status(201).json({ success: true, id: this.lastID, message: 'Utilizador criado com sucesso (fallback)' });
+        const newUserId = this.lastID;
+        console.log(`User created with ID (fallback): ${newUserId}`);
+        // Ensure must_change_password is set when available
+        db.run('UPDATE users SET must_change_password = 1 WHERE id = ?', [newUserId], () => {
+          // Optionally link to condominium if provided
+          if (!Number.isNaN(condoId)) {
+            db.run('INSERT OR IGNORE INTO user_condominiums (user_id, condominium_id, apartment, role) VALUES (?, ?, ?, ?)', [newUserId, condoId, apartment || '', 'resident'], (linkErr) => {
+              if (linkErr) console.error('Error linking user to condominium (fallback):', linkErr.message);
+              return res.status(201).json({ success: true, id: newUserId, linkedCondominiumId: Number.isNaN(condoId) ? null : condoId, message: 'Utilizador criado com sucesso' });
+            });
+          } else {
+            return res.status(201).json({ success: true, id: newUserId, linkedCondominiumId: null, message: 'Utilizador criado com sucesso' });
+          }
+        });
       });
     } else {
-      console.log(`User created with ID: ${this.lastID}`);
-      res.status(201).json({ 
-        success: true, 
-        id: this.lastID,
-        message: 'Utilizador criado com sucesso'
-      });
+      const newUserId = this.lastID;
+      console.log(`User created with ID: ${newUserId}`);
+      // Link to condominium if provided
+      if (!Number.isNaN(condoId)) {
+        db.run('INSERT OR IGNORE INTO user_condominiums (user_id, condominium_id, apartment, role) VALUES (?, ?, ?, ?)', [newUserId, condoId, apartment || '', 'resident'], (linkErr) => {
+          if (linkErr) {
+            console.error('Error linking user to condominium:', linkErr.message);
+            // Still return success for user creation
+            return res.status(201).json({ success: true, id: newUserId, linkedCondominiumId: null, message: 'Utilizador criado, mas falhou ligação ao condomínio' });
+          }
+          return res.status(201).json({ success: true, id: newUserId, linkedCondominiumId: condoId, message: 'Utilizador criado e associado ao condomínio' });
+        });
+      } else {
+        res.status(201).json({ success: true, id: newUserId, linkedCondominiumId: null, message: 'Utilizador criado com sucesso' });
+      }
     }
   });
 });
@@ -2126,7 +2257,7 @@ app.post('/api/import-csv', (req, res) => {
       user['e-mail 1'] || '', user['e-mail 2'] || '', user['e-mail 3'] || '',
       user['Permite e-mail'] || '', user.Cônjuge || '',
       user['Data de criação'] || '', user['Data de alteração'] || '',
-      user.Password || '123456' // Default password if none provided
+      user.Password || (user.NIF ? user.NIF.toString().trim() : '') // Default to NIF if none provided
     ];
 
     db.run(sql, values, function(err) {
@@ -2284,7 +2415,7 @@ app.post('/api/import-csv-enhanced', (req, res) => {
           user['e-mail 1'] || '', user['e-mail 2'] || '', user['e-mail 3'] || '',
           user['Permite e-mail'] || '', user.Cônjuge || '',
           user['Data de criação'] || '', user['Data de alteração'] || '',
-          user.Password || 'Teste' // Default password
+          user.Password || ((user.NIF || '').toString().trim()) // Default password to NIF
         ];
 
         db.run(sql, values, function(err) {
@@ -2434,6 +2565,28 @@ app.get('/api/users/:id/condominiums', (req, res) => {
     } else {
       res.json(rows);
     }
+  });
+});
+
+// Link a user to a condominium (create association)
+app.post('/api/users/:id/condominiums', (req, res) => {
+  const userId = parseInt(req.params.id, 10);
+  const condoId = parseInt(req.body.condominium_id ?? req.body.condominiumId, 10);
+  const apartment = req.body.apartment || '';
+  const role = req.body.role || 'resident';
+
+  if (isNaN(userId) || isNaN(condoId)) {
+    return res.status(400).json({ error: 'Invalid user or condominium id' });
+  }
+
+  const sql = 'INSERT OR IGNORE INTO user_condominiums (user_id, condominium_id, apartment, role) VALUES (?, ?, ?, ?)';
+  db.run(sql, [userId, condoId, apartment, role], function(err) {
+    if (err) {
+      console.error('Error linking user to condominium (POST):', err.message);
+      return res.status(500).json({ error: 'Database error' });
+    }
+    const created = this.changes > 0;
+    return res.status(created ? 201 : 200).json({ success: true, created, user_id: userId, condominium_id: condoId, apartment, role });
   });
 });
 
@@ -2592,7 +2745,7 @@ app.put('/api/condominiums/:id', (req, res) => {
 });
 
 // Create a user and link to condominium in one request (manual add)
-app.post('/api/admin/condominiums/:id/users', (req, res) => {
+app.post('/api/admin/condominiums/:id/users', async (req, res) => {
   const condominiumId = parseInt(req.params.id, 10);
   const user = req.body || {};
 
@@ -2600,73 +2753,195 @@ app.post('/api/admin/condominiums/:id/users', (req, res) => {
     return res.status(400).json({ error: 'Missing required user field: nif' });
   }
 
-  // Allow nome optional; if not provided, use placeholder using NIF
-  const nome = user.nome && user.nome.trim() ? user.nome.trim() : `Morador ${user.nif}`;
-  const nif = (user.nif || '').toString().trim();
+  try {
+    // Allow nome optional; if not provided, use placeholder using NIF
+    const nome = user.nome && String(user.nome).trim() ? String(user.nome).trim() : `Morador ${user.nif}`;
+    const nif = String(user.nif || '').trim();
 
-  // Try to insert user or find existing by NIF
-  const insertSql = `INSERT OR IGNORE INTO users (nome, nif, telemovel, telefone, email1, email2, email3, password) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`;
-  const values = [nome, nif, user.telemovel || '', user.telefone || '', user.email1 || '', user.email2 || '', user.email3 || '', user.password || '123456'];
+    // Initial password: provided by admin or defaults to NIF; hash and set must_change_password=1
+    const initialPassword = (user.password && String(user.password).trim()) ? String(user.password).trim() : nif;
+    const hashedPassword = await bcrypt.hash(initialPassword, 10);
 
-  db.run(insertSql, values, function(err) {
-    if (err) {
-      console.error('Error creating user:', err.message);
-      return res.status(500).json({ error: 'Database error creating user' });
-    }
+    // Try to insert user or find existing by NIF
+    const insertSql = `INSERT OR IGNORE INTO users (nome, nif, telemovel, telefone, email1, email2, email3, password, must_change_password) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+    const values = [
+      nome,
+      nif,
+      user.telemovel || '',
+      user.telefone || '',
+      user.email1 || '',
+      user.email2 || '',
+      user.email3 || '',
+      hashedPassword,
+      1
+    ];
 
-    const finalize = (userId) => {
-      db.run('INSERT OR IGNORE INTO user_condominiums (user_id, condominium_id, apartment, role) VALUES (?, ?, ?, ?)', [userId, condominiumId, user.apartment || '', user.role || 'resident'], function(err2) {
-        if (err2) {
-          console.error('Error linking user to condominium:', err2.message);
-          return res.status(500).json({ error: 'Database error linking user to condominium' });
-        }
-        db.get('SELECT id, nome, nif, telemovel, telefone, email1 FROM users WHERE id = ?', [userId], (err3, row) => {
-          if (err3) return res.status(500).json({ error: 'Database error' });
-          res.status(201).json({ success: true, user: row });
+    db.run(insertSql, values, function(err) {
+      if (err) {
+        console.error('Error creating user:', err.message);
+        return res.status(500).json({ error: 'Database error creating user' });
+      }
+
+      const finalize = (userId) => {
+        db.run(
+          'INSERT OR IGNORE INTO user_condominiums (user_id, condominium_id, apartment, role) VALUES (?, ?, ?, ?)',
+          [userId, condominiumId, user.apartment || '', user.role || 'resident'],
+          function(err2) {
+            if (err2) {
+              console.error('Error linking user to condominium:', err2.message);
+              return res.status(500).json({ error: 'Database error linking user to condominium' });
+            }
+            db.get('SELECT id, nome, nif, telemovel, telefone, email1 FROM users WHERE id = ?', [userId], (err3, row) => {
+              if (err3) return res.status(500).json({ error: 'Database error' });
+              res.status(201).json({ success: true, user: row });
+            });
+          }
+        );
+      };
+
+      if (this.lastID && this.lastID > 0) {
+        // New user inserted
+        finalize(this.lastID);
+      } else {
+        // User already existed, find by NIF; do not overwrite existing password
+        db.get('SELECT id FROM users WHERE nif = ?', [nif], (e, row) => {
+          if (e || !row) {
+            console.error('Error finding existing user after insert:', e && e.message);
+            return res.status(500).json({ error: 'Database error finding user' });
+          }
+          finalize(row.id);
         });
-      });
-    };
-
-    if (this.lastID && this.lastID > 0) {
-      // New user inserted
-      finalize(this.lastID);
-    } else {
-      // User already existed, find by NIF
-      db.get('SELECT id FROM users WHERE nif = ?', [nif], (e, row) => {
-        if (e || !row) {
-          console.error('Error finding existing user after insert:', e && e.message);
-          return res.status(500).json({ error: 'Database error finding user' });
-        }
-        finalize(row.id);
-      });
-    }
-  });
+      }
+    });
+  } catch (hashErr) {
+    console.error('Error preparing user password:', hashErr);
+    return res.status(500).json({ error: 'Error preparing credentials' });
+  }
 });
 
 // Bulk import users for a condominium (accepts JSON array of users)
-app.post('/api/admin/condominiums/:id/import-users', async (req, res) => {
+// Import users for a condominium via JSON or CSV upload
+app.post('/api/admin/condominiums/:id/import-users', uploadCsv.single('file'), async (req, res) => {
   const condominiumId = parseInt(req.params.id, 10);
-  const users = req.body.users;
+
+  // Helper: normalize header names
+  const normalize = (s) => {
+    if (!s) return '';
+    return String(s)
+      .replace(/^\uFEFF/, '')
+      .normalize('NFD').replace(/[\u0300-\u036f]/g, '') // strip accents
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, ' ') // non-alphanum to space
+      .trim();
+  };
+
+  const toDigits = (s) => (String(s || '').match(/\d+/g) || []).join('');
+
+  let users = [];
+
+  // Case 1: CSV file uploaded as 'file'
+  if (req.file && req.file.path) {
+    try {
+      // Try latin1 first (Windows exports), fallback to utf8
+      let raw = '';
+      try { raw = fs.readFileSync(req.file.path, { encoding: 'latin1' }); } catch {}
+      if (!raw) raw = fs.readFileSync(req.file.path, { encoding: 'utf8' });
+
+      // Split lines and detect delimiter (; preferred)
+      const lines = raw.split(/\r?\n/).filter(l => l.trim().length > 0);
+      if (lines.length === 0) return res.status(400).json({ error: 'CSV file is empty' });
+      const headerLine = lines[0].replace(/^\uFEFF/, '');
+      const delim = (headerLine.split(';').length >= headerLine.split(',').length) ? ';' : ',';
+      const headers = headerLine.split(delim).map(normalize);
+
+      const idx = (nameCandidates) => {
+        for (const cand of nameCandidates) {
+          const i = headers.indexOf(cand);
+          if (i !== -1) return i;
+        }
+        return -1;
+      };
+
+      const mapIdx = {
+        nome: idx(['nome']),
+        nif: idx(['nif']),
+        telemovel: idx(['telemovel','telemovel*','telemove l','telemovel movel','telemovel telemovel','telemovel telefone','telemovel telefone','telemovel telefone','telemovel telefone*','telemovel telefone']),
+        telefone: idx(['telefone','telefone fixo']),
+        email1: idx(['e mail 1','email 1','e-mail 1','email1','mail 1']),
+        email2: idx(['e mail 2','email 2','e-mail 2','email2','mail 2']),
+        email3: idx(['e mail 3','email 3','e-mail 3','email3','mail 3']),
+        permite_telefone: idx(['permite telefone']),
+        permite_email: idx(['permite e mail','permite e-mail','permite email']),
+        conjuge: idx(['conjuge','conjugue','conjuge*','conjuge cônjuge','conjuge conjuge'])
+      };
+
+      for (let r = 1; r < lines.length; r++) {
+        const cols = lines[r].split(delim);
+        const u = {
+          nome: mapIdx.nome !== -1 ? cols[mapIdx.nome] : '',
+          nif: toDigits(mapIdx.nif !== -1 ? cols[mapIdx.nif] : ''),
+          telemovel: mapIdx.telemovel !== -1 ? cols[mapIdx.telemovel] : '',
+          telefone: mapIdx.telefone !== -1 ? cols[mapIdx.telefone] : '',
+          email1: mapIdx.email1 !== -1 ? cols[mapIdx.email1] : '',
+          email2: mapIdx.email2 !== -1 ? cols[mapIdx.email2] : '',
+          email3: mapIdx.email3 !== -1 ? cols[mapIdx.email3] : '',
+          permite_telefone: mapIdx.permite_telefone !== -1 ? cols[mapIdx.permite_telefone] : '',
+          permite_email: mapIdx.permite_email !== -1 ? cols[mapIdx.permite_email] : '',
+          conjuge: mapIdx.conjuge !== -1 ? cols[mapIdx.conjuge] : ''
+        };
+        if (u.nif) users.push(u);
+      }
+    } catch (e) {
+      console.error('Error parsing CSV:', e.message);
+      return res.status(400).json({ error: 'Erro ao ler CSV' });
+    } finally {
+      try { fs.unlink(req.file.path, () => {}); } catch {}
+    }
+  } else {
+    // Case 2: JSON array in body
+    users = req.body.users;
+    if (!Array.isArray(users)) users = [];
+  }
 
   if (!Array.isArray(users) || users.length === 0) {
     return res.status(400).json({ error: 'users must be a non-empty array' });
   }
 
   let imported = 0;
+  let linked = 0;
+  let skipped = 0;
   let errors = 0;
 
   for (const user of users) {
     try {
+      const nome = (user.nome && String(user.nome).trim()) ? String(user.nome).trim() : `Morador ${user.nif}`;
+      const nifStr = (user.nif || '').toString().trim();
+      if (!nifStr) { skipped++; continue; }
+
+      // Prepare hashed initial password (default NIF)
+      let hashedPassword = null;
+      try { hashedPassword = await bcrypt.hash(nifStr, 10); } catch {}
+
       // Insert or ignore user
-      const insertSql = `INSERT OR IGNORE INTO users (grupo, nome, nif, telemovel, telefone, permite_telefone, email1, email2, email3, permite_email, conjuge, data_criacao, data_alteracao, password) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
-      const values = [user.grupo || '', user.nome || '', (user.nif || '').toString().trim(), user.telemovel || '', user.telefone || '', user.permite_telefone || '', user.email1 || '', user.email2 || '', user.email3 || '', user.permite_email || '', user.conjuge || '', user.data_criacao || null, user.data_alteracao || null, user.password || '123456'];
+      const insertSql = `
+        INSERT OR IGNORE INTO users (
+          grupo, nome, nif, telemovel, telefone, permite_telefone,
+          email1, email2, email3, permite_email, conjuge,
+          data_criacao, data_alteracao, password, must_change_password
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1)
+      `;
+
+      const values = [
+        user.grupo || '', nome, nifStr, user.telemovel || '', user.telefone || '', user.permite_telefone || '',
+        user.email1 || '', user.email2 || '', user.email3 || '', user.permite_email || '', user.conjuge || '',
+        user.data_criacao || null, user.data_alteracao || null, hashedPassword || nifStr
+      ];
 
       const userId = await new Promise((resolve, reject) => {
         db.run(insertSql, values, function(err) {
           if (err) return reject(err);
           if (this.lastID) return resolve(this.lastID);
-          // If insert ignored because exists, try to find by nif
-          db.get('SELECT id FROM users WHERE nif = ?', [(user.nif || '').toString().trim()], (e, row) => {
+          db.get('SELECT id FROM users WHERE nif = ?', [nifStr], (e, row) => {
             if (e) return reject(e);
             if (row && row.id) return resolve(row.id);
             return reject(new Error('Could not determine user id after insert'));
@@ -2674,22 +2949,34 @@ app.post('/api/admin/condominiums/:id/import-users', async (req, res) => {
         });
       });
 
+      if (userId) imported++;
+
       // Link to condominium
       await new Promise((resolve, reject) => {
-        db.run('INSERT OR IGNORE INTO user_condominiums (user_id, condominium_id, apartment, role) VALUES (?, ?, ?, ?)', [userId, condominiumId, user.apartment || '', user.role || 'resident'], function(err) {
-          if (err) return reject(err);
-          resolve();
-        });
+        db.run(
+          'INSERT OR IGNORE INTO user_condominiums (user_id, condominium_id, apartment, role) VALUES (?, ?, ?, ?)',
+          [userId, condominiumId, user.apartment || '', user.role || 'resident'],
+          function(err) {
+            if (err) return reject(err);
+            if (this.changes > 0) linked++;
+            resolve();
+          }
+        );
       });
-
-      imported++;
     } catch (e) {
       console.error('Error importing user for condominium:', e.message);
       errors++;
     }
   }
 
-  res.json({ success: true, imported, errors });
+  res.json({ success: true, imported, linked, skipped, errors });
+});
+
+// Alias endpoint for CSV imports (some UIs may call `import-csv`)
+app.post('/api/admin/condominiums/:id/import-csv', uploadCsv.single('file'), (req, res) => {
+  // Reuse the same handler by internally forwarding to import-users
+  req.url = `/api/admin/condominiums/${req.params.id}/import-users`;
+  return app._router.handle(req, res);
 });
 
 // Assembleias endpoints
@@ -4321,6 +4608,42 @@ app.post('/api/admin/maintenance-users', async (req, res) => {
     } catch (e) {
       console.error('Error deleting admin:', e);
       res.status(500).json({ error: 'Erro ao apagar admin' });
+    }
+  });
+
+  // Admin-only: force reset all user passwords to hash(NIF) and set must_change_password=1
+  app.post('/api/admin/reset-passwords-to-nif', async (req, res) => {
+    const isMain = await checkIsMainAdmin(req);
+    if (!isMain) return res.status(403).json({ error: 'Only main admin can reset passwords' });
+    try {
+      const users = await new Promise((resolve, reject) => {
+        db.all("SELECT id, nif FROM users WHERE nif IS NOT NULL AND TRIM(nif) != ''", [], (err, rows) => {
+          if (err) return reject(err);
+          resolve(rows || []);
+        });
+      });
+
+      let updated = 0, errors = 0;
+      for (const u of users) {
+        try {
+          const nifStr = String(u.nif).trim();
+          const hashed = await bcrypt.hash(nifStr, 10);
+          await new Promise((resolve, reject) => {
+            db.run('UPDATE users SET password = ?, must_change_password = 1, updated_at = CURRENT_TIMESTAMP WHERE id = ?', [hashed, u.id], function(err){
+              if (err) return reject(err);
+              updated += this.changes || 0;
+              resolve();
+            });
+          });
+        } catch (e) {
+          errors += 1;
+          console.error('Reset error for user', u && u.id, e && e.message);
+        }
+      }
+      res.json({ success: true, updated, errors });
+    } catch (e) {
+      console.error('Bulk reset failed:', e && e.message);
+      res.status(500).json({ error: 'Bulk reset failed' });
     }
   });
 

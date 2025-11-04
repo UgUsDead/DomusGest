@@ -1,3 +1,37 @@
 ⚠️ firebase-admin not available. Push notifications will be disabled until the dependency is installed. Cannot find module 'firebase-admin'
 Require stack:
 - C:\DomusGest\backend\server.js
+Error fetching user_condominiums for user 1122 SQLITE_ERROR: no such column: c.nome
+Error fetching user_condominiums for user 1122 SQLITE_ERROR: no such column: c.nome
+Error fetching user_condominiums for user 1122 SQLITE_ERROR: no such column: c.nome
+Error fetching user_condominiums for user 1122 SQLITE_ERROR: no such column: c.nome
+Error fetching user_condominiums for user 1122 SQLITE_ERROR: no such column: c.nome
+Error fetching user_condominiums for user 1122 SQLITE_ERROR: no such column: c.nome
+Error fetching user_condominiums for user 1122 SQLITE_ERROR: no such column: c.nome
+Error fetching user_condominiums for user 1122 SQLITE_ERROR: no such column: c.nome
+Error fetching user_condominiums for user 1122 SQLITE_ERROR: no such column: c.nome
+Error fetching user_condominiums for user 1464 SQLITE_ERROR: no such column: c.nome
+Error fetching user_condominiums for user 1464 SQLITE_ERROR: no such column: c.nome
+Error fetching user_condominiums for user 1464 SQLITE_ERROR: no such column: c.nome
+Error fetching user_condominiums for user 1464 SQLITE_ERROR: no such column: c.nome
+Error fetching user_condominiums for user 1464 SQLITE_ERROR: no such column: c.nome
+Error fetching user_condominiums for user 1464 SQLITE_ERROR: no such column: c.nome
+Error inserting user (full schema): SQLITE_ERROR: table users has no column named grupo
+Error fetching user_condominiums for user 9986 SQLITE_ERROR: no such column: c.nome
+Error inserting user (full schema): SQLITE_ERROR: table users has no column named grupo
+Error inserting user (full schema): SQLITE_ERROR: table users has no column named grupo
+Error fetching user_condominiums for user 9988 SQLITE_ERROR: no such column: c.nome
+Error fetching user_condominiums for user 9988 SQLITE_ERROR: no such column: c.nome
+Error inserting user (full schema): SQLITE_ERROR: table users has no column named grupo
+Error fetching user_condominiums for user 9989 SQLITE_ERROR: no such column: c.nome
+Error fetching user_condominiums for user 9989 SQLITE_ERROR: no such column: c.nome
+Error fetching user_condominiums for user 9989 SQLITE_ERROR: no such column: c.nome
+Error fetching user_condominiums for user 9989 SQLITE_ERROR: no such column: c.nome
+ReferenceError: Nome is not defined
+    at Statement.<anonymous> (C:\DomusGest\backend\server.js:5331:48)
+ReferenceError: Nome is not defined
+    at Statement.<anonymous> (C:\DomusGest\backend\server.js:5460:48)
+ReferenceError: Nome is not defined
+    at Statement.<anonymous> (C:\DomusGest\backend\server.js:5460:48)
+ReferenceError: Nome is not defined
+    at Statement.<anonymous> (C:\DomusGest\backend\server.js:5467:48)

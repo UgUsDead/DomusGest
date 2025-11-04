@@ -1,1 +1,156 @@
-<!doctype html><html lang="pt"><head><meta charset="utf-8"/><link rel="icon" type="image/x-icon" href="favicon.ico"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="theme-color" content="#000000"/><meta name="description" content="Web site created using create-react-app"/><link rel="icon" href="/logo192.png"/><link rel="manifest" href="/manifest.json"/><title>React App</title><script defer="defer" src="/static/js/main.cb9b9f7a.js"></script><link href="/static/css/main.ff967427.css" rel="stylesheet"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"></div></body></html>
+<!doctype html><html lang="pt"><head><meta charset="utf-8"/><link rel="icon" type="image/x-icon" href="favicon.ico"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="theme-color" content="#000000"/><meta name="description" content="Web site created using create-react-app"/><link rel="icon" href="/logo192.png"/><link rel="manifest" href="/manifest.json"/><title>React App</title>
+	<!-- Force password change overlay shim -->
+	<script>
+		(function(){
+			var MUST_KEY = 'domusgest_force_pwd_change';
+
+			function h(tag, attrs, children){
+				var el = document.createElement(tag);
+				if (attrs) Object.keys(attrs).forEach(function(k){
+					if (k === 'style' && typeof attrs[k] === 'object'){
+						Object.assign(el.style, attrs[k]);
+					} else if (k === 'text') {
+						el.textContent = attrs[k];
+					} else {
+						el.setAttribute(k, attrs[k]);
+					}
+				});
+				(children||[]).forEach(function(c){ el.appendChild(c); });
+				return el;
+			}
+
+			function showOverlay(userNif){
+				try { sessionStorage.setItem(MUST_KEY, String(userNif||'')); } catch(e){}
+				if (document.getElementById('force-change-overlay')) return;
+				var backdrop = h('div', { id: 'force-change-overlay', style: {
+					position:'fixed', inset:'0', background:'rgba(0,0,0,0.6)', zIndex:'2147483647', display:'flex', alignItems:'center', justifyContent:'center'
+				}});
+				var card = h('div', { style:{ background:'#fff', borderRadius:'10px', width:'min(92vw, 420px)', boxShadow:'0 10px 30px rgba(0,0,0,0.3)', fontFamily:'system-ui, -apple-system, Segoe UI, Roboto, Arial', color:'#111' } });
+				var header = h('div', { style:{ padding:'16px 20px', borderBottom:'1px solid #eee', fontWeight:'600', fontSize:'18px' }, text:'Alteração de palavra‑passe obrigatória' });
+				var body = h('div', { style:{ padding:'16px 20px', lineHeight:'1.4' } });
+				var info = h('p', { style:{ margin:'0 0 12px 0', fontSize:'14px', color:'#333' } });
+				info.innerHTML = 'Por motivos de segurança, tem de definir uma nova palavra‑passe antes de continuar. A palavra‑passe atual é, temporariamente, o seu NIF.';
+
+				var form = h('form', { novalidate:'true' });
+
+				var nifRow = h('div', { style:{ margin:'10px 0 0 0', fontSize:'12px', color:'#555' } });
+				nifRow.textContent = 'NIF: ' + (userNif || '(desconhecido)');
+
+				function field(label, type, id){
+					var wrap = h('div', { style:{ margin:'10px 0' } });
+					var lab = h('label', { for:id, style:{ display:'block', fontSize:'13px', marginBottom:'6px', color:'#222', fontWeight:'600' }, text:label });
+					var inp = h('input', { id:id, type:type, required:'true', style:{ width:'100%', padding:'10px 12px', border:'1px solid #ccc', borderRadius:'8px', fontSize:'14px' } });
+					wrap.appendChild(lab); wrap.appendChild(inp); return {wrap:wrap, input:inp};
+				}
+
+				var cur = field('Palavra‑passe atual (NIF)', 'password', 'dg_cur');
+				var npw = field('Nova palavra‑passe', 'password', 'dg_new');
+				var cnp = field('Confirmar nova palavra‑passe', 'password', 'dg_conf');
+
+				var err = h('div', { id:'dg_err', style:{ color:'#b00020', fontSize:'13px', minHeight:'18px', marginTop:'6px' } });
+
+				var actions = h('div', { style:{ display:'flex', gap:'10px', marginTop:'8px', alignItems:'center' } });
+				var btn = h('button', { type:'submit', style:{ background:'#0D6EFD', color:'#fff', border:'0', borderRadius:'8px', padding:'10px 14px', fontSize:'14px', cursor:'pointer' } , text:'Guardar nova palavra‑passe' });
+				var show = h('button', { type:'button', style:{ background:'transparent', color:'#0D6EFD', border:'0', padding:'8px 10px', cursor:'pointer' }, text:'Mostrar/ocultar' });
+				show.addEventListener('click', function(){ [cur.input, npw.input, cnp.input].forEach(function(i){ i.type = (i.type==='password'?'text':'password'); }); });
+				actions.appendChild(btn); actions.appendChild(show);
+
+				[info, nifRow, cur.wrap, npw.wrap, cnp.wrap, err, actions].forEach(function(node){ body.appendChild(node); });
+				card.appendChild(header); card.appendChild(body); backdrop.appendChild(card); document.body.appendChild(backdrop);
+
+				form.addEventListener('submit', function(e){ e.preventDefault(); }); // avoid default on Enter in fields
+				btn.addEventListener('click', function(e){ e.preventDefault(); (async function(){
+					var nif = userNif || '';
+					var curVal = (cur.input.value||'').trim();
+					var n1 = (npw.input.value||'').trim();
+					var n2 = (cnp.input.value||'').trim();
+					if (!curVal || !n1 || !n2) return err.textContent = 'Preencha todos os campos.';
+					if (n1.length < 6) return err.textContent = 'A nova palavra‑passe deve ter pelo menos 6 caracteres.';
+					if (n1 !== n2) return err.textContent = 'As palavras‑passe não coincidem.';
+					try {
+						btn.disabled = true; btn.textContent = 'A guardar…'; err.textContent = '';
+						var resp = await fetch('/api/change-password', { method:'POST', headers:{ 'Content-Type':'application/json' }, body: JSON.stringify({ nif: String(nif||''), currentPassword: curVal, newPassword: n1 }) });
+						var data = await resp.json().catch(function(){ return null; });
+						if (!resp.ok){
+							var msg = (data && (data.error||data.message)) || ('Erro ' + resp.status);
+							throw new Error(msg);
+						}
+						try { sessionStorage.removeItem(MUST_KEY); } catch(e){}
+						// Remove overlay and reload app to refresh user state
+						backdrop.remove();
+						// Optional: inform the user
+						alert('Palavra‑passe alterada com sucesso.');
+						location.reload();
+					} catch(ex){
+						err.textContent = ex && ex.message ? ex.message : 'Erro ao alterar a palavra‑passe.';
+					} finally {
+						btn.disabled = false; btn.textContent = 'Guardar nova palavra‑passe';
+					}
+				})(); });
+			}
+
+			function maybeShowFromFlag(){
+				try {
+					var nif = sessionStorage.getItem(MUST_KEY);
+					if (nif) showOverlay(nif);
+				} catch(e){}
+			}
+
+			// Intercept fetch to catch login responses
+			(function(){
+				if (!window.fetch) return;
+				var origFetch = window.fetch.bind(window);
+				window.fetch = function(input, init){
+					var url = (typeof input === 'string') ? input : (input && input.url) || '';
+					var method = (init && (init.method||init.type)) || 'GET';
+					var p = origFetch(input, init);
+					if (/\/api\/login(\b|$)/.test(url) && /post/i.test(method)){
+						p.then(function(resp){
+							try {
+								var clone = resp.clone();
+								clone.json().then(function(data){
+									var u = data && data.user;
+									if (u && (u.must_change_password === true || u.mustChangePassword === true)){
+										var nif = u.NIF || u.nif || '';
+										showOverlay(nif);
+									}
+								}).catch(function(){});
+							} catch(e){}
+						}).catch(function(){});
+					}
+					return p;
+				};
+			})();
+
+			// Intercept XHR as a fallback (e.g., Axios)
+			(function(){
+				var XHR = window.XMLHttpRequest; if (!XHR) return;
+				var open = XHR.prototype.open; var send = XHR.prototype.send;
+				XHR.prototype.open = function(method, url){ this.__dg_url = url; this.__dg_method = method; return open.apply(this, arguments); };
+				XHR.prototype.send = function(body){
+					try {
+						this.addEventListener('load', function(){
+							try {
+								var url = this.__dg_url || '';
+								var method = this.__dg_method || 'GET';
+								if (/\/api\/login(\b|$)/.test(url) && /post/i.test(method)){
+									var data = {};
+									try { data = JSON.parse(this.responseText||'{}'); } catch(e){}
+									var u = data && data.user;
+									if (u && (u.must_change_password === true || u.mustChangePassword === true)){
+										var nif = u.NIF || u.nif || '';
+										showOverlay(nif);
+									}
+								}
+							} catch(e){}
+						});
+					} catch(e){}
+					return send.apply(this, arguments);
+				};
+			})();
+
+			// On load, if flag set, show overlay
+			window.addEventListener('DOMContentLoaded', maybeShowFromFlag);
+		})();
+	</script>
+	<script defer="defer" src="/static/js/main.cb9b9f7a.js"></script><link href="/static/css/main.ff967427.css" rel="stylesheet"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"></div></body></html>
