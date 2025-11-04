@@ -2195,3 +2195,2054 @@ CSV Headers: [
   'Permite e-mail',
   'C�njuge'
 ]
+✅ Server is running on port 5000
+✅ Connected to SQLite database at: C:\DomusGest\data\domusgest.db
+✅ Users table ready
+✅ Maintenance users table ready
+✅ Ocorrencias table ready
+✅ Assembleias table ready
+✅ Admins table ready
+✅ Ocorrencia images table ready
+✅ User messages table ready
+✅ Condominiums table ready
+✅ Assembleia files table ready
+✅ app_meta table ready
+ℹ️ Password reset to NIF migration already applied
+✅ Admin notes table ready
+✅ Notifications table ready
+✅ User notifications table ready
+✅ Admin Notifications link table ready
+✅ Profile changes table ready
+✅ admin_messages table ready
+✅ admin_message_targets table ready
+✅ admin_message_condominiums table ready
+✅ admin_message_files table ready
+✅ User condominiums table ready
+✅ admin_notifications table ready
+✅ Default admin user created (admin/admin!!)
+✅ Default maintenance user created (Manut/Manut!!)
+✅ Default maintenance user created (Manut2/Manut2!!)
+✅ Default maintenance user created (Manut3/Manut3!!)
+🔍 /api/users endpoint called
+   admin-permissions header: {"scope":"full","allowed_condominiums":null}
+   Parsed permissions: { scope: 'full', allowed_condominiums: null }
+   Admin has full access - showing all users
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '262' ]
+🔍 DEBUG - User 501460888:
+   Raw condominium_details: 24:131:,26:133:,34:146:,43:160:,79:238:,80:239:,83:242:,84:247:,85:248:,86:249:,88:253:,89:254:,91:258:,92:259:,94:268:,95:270:,109:310:,128:378:
+   Parsed condominiumList: [
+  { id: 24, name: '131', apartment: '' },
+  { id: 26, name: '133', apartment: '' },
+  { id: 34, name: '146', apartment: '' },
+  { id: 43, name: '160', apartment: '' },
+  { id: 79, name: '238', apartment: '' },
+  { id: 80, name: '239', apartment: '' },
+  { id: 83, name: '242', apartment: '' },
+  { id: 84, name: '247', apartment: '' },
+  { id: 85, name: '248', apartment: '' },
+  { id: 86, name: '249', apartment: '' },
+  { id: 88, name: '253', apartment: '' },
+  { id: 89, name: '254', apartment: '' },
+  { id: 91, name: '258', apartment: '' },
+  { id: 92, name: '259', apartment: '' },
+  { id: 94, name: '268', apartment: '' },
+  { id: 95, name: '270', apartment: '' },
+  { id: 109, name: '310', apartment: '' },
+  { id: 128, name: '378', apartment: '' }
+]
+   condominiumList length: 18
+✅ Unread count: 0
+🔍 /api/users/:id endpoint called, id= 478
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '262' ]
+✅ Unread count: 0
+🔍 /api/users endpoint called
+   admin-permissions header: {"scope":"full","allowed_condominiums":null}
+   Parsed permissions: { scope: 'full', allowed_condominiums: null }
+   Admin has full access - showing all users
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '262' ]
+🔍 DEBUG - User 501460888:
+   Raw condominium_details: 24:131:,26:133:,34:146:,43:160:,79:238:,80:239:,83:242:,84:247:,85:248:,86:249:,88:253:,89:254:,91:258:,92:259:,94:268:,95:270:,109:310:,128:378:
+   Parsed condominiumList: [
+  { id: 24, name: '131', apartment: '' },
+  { id: 26, name: '133', apartment: '' },
+  { id: 34, name: '146', apartment: '' },
+  { id: 43, name: '160', apartment: '' },
+  { id: 79, name: '238', apartment: '' },
+  { id: 80, name: '239', apartment: '' },
+  { id: 83, name: '242', apartment: '' },
+  { id: 84, name: '247', apartment: '' },
+  { id: 85, name: '248', apartment: '' },
+  { id: 86, name: '249', apartment: '' },
+  { id: 88, name: '253', apartment: '' },
+  { id: 89, name: '254', apartment: '' },
+  { id: 91, name: '258', apartment: '' },
+  { id: 92, name: '259', apartment: '' },
+  { id: 94, name: '268', apartment: '' },
+  { id: 95, name: '270', apartment: '' },
+  { id: 109, name: '310', apartment: '' },
+  { id: 128, name: '378', apartment: '' }
+]
+   condominiumList length: 18
+✅ Unread count: 0
+🔍 /api/users/:id endpoint called, id= 1165
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '262' ]
+✅ Unread count: 0
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '262' ]
+🔍 /api/users endpoint called
+   admin-permissions header: {"scope":"full","allowed_condominiums":null}
+   Parsed permissions: { scope: 'full', allowed_condominiums: null }
+   Admin has full access - showing all users
+✅ Unread count: 0
+🔍 DEBUG - User 501460888:
+   Raw condominium_details: 24:131:,26:133:,34:146:,43:160:,79:238:,80:239:,83:242:,84:247:,85:248:,86:249:,88:253:,89:254:,91:258:,92:259:,94:268:,95:270:,109:310:,128:378:
+   Parsed condominiumList: [
+  { id: 24, name: '131', apartment: '' },
+  { id: 26, name: '133', apartment: '' },
+  { id: 34, name: '146', apartment: '' },
+  { id: 43, name: '160', apartment: '' },
+  { id: 79, name: '238', apartment: '' },
+  { id: 80, name: '239', apartment: '' },
+  { id: 83, name: '242', apartment: '' },
+  { id: 84, name: '247', apartment: '' },
+  { id: 85, name: '248', apartment: '' },
+  { id: 86, name: '249', apartment: '' },
+  { id: 88, name: '253', apartment: '' },
+  { id: 89, name: '254', apartment: '' },
+  { id: 91, name: '258', apartment: '' },
+  { id: 92, name: '259', apartment: '' },
+  { id: 94, name: '268', apartment: '' },
+  { id: 95, name: '270', apartment: '' },
+  { id: 109, name: '310', apartment: '' },
+  { id: 128, name: '378', apartment: '' }
+]
+   condominiumList length: 18
+🔍 /api/users/:id endpoint called, id= 362
+🔍 /api/users endpoint called
+   admin-permissions header: {"scope":"full","allowed_condominiums":null}
+   Parsed permissions: { scope: 'full', allowed_condominiums: null }
+   Admin has full access - showing all users
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '262' ]
+🔍 DEBUG - User 501460888:
+   Raw condominium_details: 24:131:,26:133:,34:146:,43:160:,79:238:,80:239:,83:242:,84:247:,85:248:,86:249:,88:253:,89:254:,91:258:,92:259:,94:268:,95:270:,109:310:,128:378:
+   Parsed condominiumList: [
+  { id: 24, name: '131', apartment: '' },
+  { id: 26, name: '133', apartment: '' },
+  { id: 34, name: '146', apartment: '' },
+  { id: 43, name: '160', apartment: '' },
+  { id: 79, name: '238', apartment: '' },
+  { id: 80, name: '239', apartment: '' },
+  { id: 83, name: '242', apartment: '' },
+  { id: 84, name: '247', apartment: '' },
+  { id: 85, name: '248', apartment: '' },
+  { id: 86, name: '249', apartment: '' },
+  { id: 88, name: '253', apartment: '' },
+  { id: 89, name: '254', apartment: '' },
+  { id: 91, name: '258', apartment: '' },
+  { id: 92, name: '259', apartment: '' },
+  { id: 94, name: '268', apartment: '' },
+  { id: 95, name: '270', apartment: '' },
+  { id: 109, name: '310', apartment: '' },
+  { id: 128, name: '378', apartment: '' }
+]
+   condominiumList length: 18
+✅ Unread count: 0
+🔍 /api/users/:id endpoint called, id= 482
+🔍 /api/users endpoint called
+   admin-permissions header: {"scope":"full","allowed_condominiums":null}
+   Parsed permissions: { scope: 'full', allowed_condominiums: null }
+   Admin has full access - showing all users
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '262' ]
+🔍 DEBUG - User 501460888:
+   Raw condominium_details: 24:131:,26:133:,34:146:,43:160:,79:238:,80:239:,83:242:,84:247:,85:248:,86:249:,88:253:,89:254:,91:258:,92:259:,94:268:,95:270:,109:310:,128:378:
+   Parsed condominiumList: [
+  { id: 24, name: '131', apartment: '' },
+  { id: 26, name: '133', apartment: '' },
+  { id: 34, name: '146', apartment: '' },
+  { id: 43, name: '160', apartment: '' },
+  { id: 79, name: '238', apartment: '' },
+  { id: 80, name: '239', apartment: '' },
+  { id: 83, name: '242', apartment: '' },
+  { id: 84, name: '247', apartment: '' },
+  { id: 85, name: '248', apartment: '' },
+  { id: 86, name: '249', apartment: '' },
+  { id: 88, name: '253', apartment: '' },
+  { id: 89, name: '254', apartment: '' },
+  { id: 91, name: '258', apartment: '' },
+  { id: 92, name: '259', apartment: '' },
+  { id: 94, name: '268', apartment: '' },
+  { id: 95, name: '270', apartment: '' },
+  { id: 109, name: '310', apartment: '' },
+  { id: 128, name: '378', apartment: '' }
+]
+   condominiumList length: 18
+✅ Unread count: 0
+🔍 /api/users/:id endpoint called, id= 542
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '262' ]
+✅ Unread count: 0
+🔍 /api/users endpoint called
+   admin-permissions header: {"scope":"full","allowed_condominiums":null}
+   Parsed permissions: { scope: 'full', allowed_condominiums: null }
+   Admin has full access - showing all users
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '262' ]
+🔍 DEBUG - User 501460888:
+   Raw condominium_details: 24:131:,26:133:,34:146:,43:160:,79:238:,80:239:,83:242:,84:247:,85:248:,86:249:,88:253:,89:254:,91:258:,92:259:,94:268:,95:270:,109:310:,128:378:
+   Parsed condominiumList: [
+  { id: 24, name: '131', apartment: '' },
+  { id: 26, name: '133', apartment: '' },
+  { id: 34, name: '146', apartment: '' },
+  { id: 43, name: '160', apartment: '' },
+  { id: 79, name: '238', apartment: '' },
+  { id: 80, name: '239', apartment: '' },
+  { id: 83, name: '242', apartment: '' },
+  { id: 84, name: '247', apartment: '' },
+  { id: 85, name: '248', apartment: '' },
+  { id: 86, name: '249', apartment: '' },
+  { id: 88, name: '253', apartment: '' },
+  { id: 89, name: '254', apartment: '' },
+  { id: 91, name: '258', apartment: '' },
+  { id: 92, name: '259', apartment: '' },
+  { id: 94, name: '268', apartment: '' },
+  { id: 95, name: '270', apartment: '' },
+  { id: 109, name: '310', apartment: '' },
+  { id: 128, name: '378', apartment: '' }
+]
+   condominiumList length: 18
+✅ Unread count: 0
+🔍 /api/users/:id endpoint called, id= 1091
+🔍 /api/users endpoint called
+   admin-permissions header: {"scope":"full","allowed_condominiums":null}
+   Parsed permissions: { scope: 'full', allowed_condominiums: null }
+   Admin has full access - showing all users
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '262' ]
+🔍 DEBUG - User 501460888:
+   Raw condominium_details: 24:131:,26:133:,34:146:,43:160:,79:238:,80:239:,83:242:,84:247:,85:248:,86:249:,88:253:,89:254:,91:258:,92:259:,94:268:,95:270:,109:310:,128:378:
+   Parsed condominiumList: [
+  { id: 24, name: '131', apartment: '' },
+  { id: 26, name: '133', apartment: '' },
+  { id: 34, name: '146', apartment: '' },
+  { id: 43, name: '160', apartment: '' },
+  { id: 79, name: '238', apartment: '' },
+  { id: 80, name: '239', apartment: '' },
+  { id: 83, name: '242', apartment: '' },
+  { id: 84, name: '247', apartment: '' },
+  { id: 85, name: '248', apartment: '' },
+  { id: 86, name: '249', apartment: '' },
+  { id: 88, name: '253', apartment: '' },
+  { id: 89, name: '254', apartment: '' },
+  { id: 91, name: '258', apartment: '' },
+  { id: 92, name: '259', apartment: '' },
+  { id: 94, name: '268', apartment: '' },
+  { id: 95, name: '270', apartment: '' },
+  { id: 109, name: '310', apartment: '' },
+  { id: 128, name: '378', apartment: '' }
+]
+   condominiumList length: 18
+✅ Unread count: 0
+🔍 /api/users/:id endpoint called, id= 1328
+🔍 /api/users endpoint called
+   admin-permissions header: {"scope":"full","allowed_condominiums":null}
+   Parsed permissions: { scope: 'full', allowed_condominiums: null }
+   Admin has full access - showing all users
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '262' ]
+🔍 DEBUG - User 501460888:
+   Raw condominium_details: 24:131:,26:133:,34:146:,43:160:,79:238:,80:239:,83:242:,84:247:,85:248:,86:249:,88:253:,89:254:,91:258:,92:259:,94:268:,95:270:,109:310:,128:378:
+   Parsed condominiumList: [
+  { id: 24, name: '131', apartment: '' },
+  { id: 26, name: '133', apartment: '' },
+  { id: 34, name: '146', apartment: '' },
+  { id: 43, name: '160', apartment: '' },
+  { id: 79, name: '238', apartment: '' },
+  { id: 80, name: '239', apartment: '' },
+  { id: 83, name: '242', apartment: '' },
+  { id: 84, name: '247', apartment: '' },
+  { id: 85, name: '248', apartment: '' },
+  { id: 86, name: '249', apartment: '' },
+  { id: 88, name: '253', apartment: '' },
+  { id: 89, name: '254', apartment: '' },
+  { id: 91, name: '258', apartment: '' },
+  { id: 92, name: '259', apartment: '' },
+  { id: 94, name: '268', apartment: '' },
+  { id: 95, name: '270', apartment: '' },
+  { id: 109, name: '310', apartment: '' },
+  { id: 128, name: '378', apartment: '' }
+]
+   condominiumList length: 18
+✅ Unread count: 0
+🔍 /api/users/:id endpoint called, id= 362
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '262' ]
+✅ Unread count: 0
+🔍 /api/users endpoint called
+   admin-permissions header: {"scope":"full","allowed_condominiums":null}
+   Parsed permissions: { scope: 'full', allowed_condominiums: null }
+   Admin has full access - showing all users
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '262' ]
+🔍 DEBUG - User 501460888:
+   Raw condominium_details: 24:131:,26:133:,34:146:,43:160:,79:238:,80:239:,83:242:,84:247:,85:248:,86:249:,88:253:,89:254:,91:258:,92:259:,94:268:,95:270:,109:310:,128:378:
+   Parsed condominiumList: [
+  { id: 24, name: '131', apartment: '' },
+  { id: 26, name: '133', apartment: '' },
+  { id: 34, name: '146', apartment: '' },
+  { id: 43, name: '160', apartment: '' },
+  { id: 79, name: '238', apartment: '' },
+  { id: 80, name: '239', apartment: '' },
+  { id: 83, name: '242', apartment: '' },
+  { id: 84, name: '247', apartment: '' },
+  { id: 85, name: '248', apartment: '' },
+  { id: 86, name: '249', apartment: '' },
+  { id: 88, name: '253', apartment: '' },
+  { id: 89, name: '254', apartment: '' },
+  { id: 91, name: '258', apartment: '' },
+  { id: 92, name: '259', apartment: '' },
+  { id: 94, name: '268', apartment: '' },
+  { id: 95, name: '270', apartment: '' },
+  { id: 109, name: '310', apartment: '' },
+  { id: 128, name: '378', apartment: '' }
+]
+   condominiumList length: 18
+✅ Unread count: 0
+🔍 /api/users/:id endpoint called, id= 611
+🔍 /api/users endpoint called
+   admin-permissions header: {"scope":"full","allowed_condominiums":null}
+   Parsed permissions: { scope: 'full', allowed_condominiums: null }
+   Admin has full access - showing all users
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '262' ]
+🔍 DEBUG - User 501460888:
+   Raw condominium_details: 24:131:,26:133:,34:146:,43:160:,79:238:,80:239:,83:242:,84:247:,85:248:,86:249:,88:253:,89:254:,91:258:,92:259:,94:268:,95:270:,109:310:,128:378:
+   Parsed condominiumList: [
+  { id: 24, name: '131', apartment: '' },
+  { id: 26, name: '133', apartment: '' },
+  { id: 34, name: '146', apartment: '' },
+  { id: 43, name: '160', apartment: '' },
+  { id: 79, name: '238', apartment: '' },
+  { id: 80, name: '239', apartment: '' },
+  { id: 83, name: '242', apartment: '' },
+  { id: 84, name: '247', apartment: '' },
+  { id: 85, name: '248', apartment: '' },
+  { id: 86, name: '249', apartment: '' },
+  { id: 88, name: '253', apartment: '' },
+  { id: 89, name: '254', apartment: '' },
+  { id: 91, name: '258', apartment: '' },
+  { id: 92, name: '259', apartment: '' },
+  { id: 94, name: '268', apartment: '' },
+  { id: 95, name: '270', apartment: '' },
+  { id: 109, name: '310', apartment: '' },
+  { id: 128, name: '378', apartment: '' }
+]
+   condominiumList length: 18
+✅ Unread count: 0
+🔍 /api/users/:id endpoint called, id= 1329
+🔍 /api/users endpoint called
+   admin-permissions header: {"scope":"full","allowed_condominiums":null}
+   Parsed permissions: { scope: 'full', allowed_condominiums: null }
+   Admin has full access - showing all users
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '262' ]
+🔍 DEBUG - User 501460888:
+   Raw condominium_details: 24:131:,26:133:,34:146:,43:160:,79:238:,80:239:,83:242:,84:247:,85:248:,86:249:,88:253:,89:254:,91:258:,92:259:,94:268:,95:270:,109:310:,128:378:
+   Parsed condominiumList: [
+  { id: 24, name: '131', apartment: '' },
+  { id: 26, name: '133', apartment: '' },
+  { id: 34, name: '146', apartment: '' },
+  { id: 43, name: '160', apartment: '' },
+  { id: 79, name: '238', apartment: '' },
+  { id: 80, name: '239', apartment: '' },
+  { id: 83, name: '242', apartment: '' },
+  { id: 84, name: '247', apartment: '' },
+  { id: 85, name: '248', apartment: '' },
+  { id: 86, name: '249', apartment: '' },
+  { id: 88, name: '253', apartment: '' },
+  { id: 89, name: '254', apartment: '' },
+  { id: 91, name: '258', apartment: '' },
+  { id: 92, name: '259', apartment: '' },
+  { id: 94, name: '268', apartment: '' },
+  { id: 95, name: '270', apartment: '' },
+  { id: 109, name: '310', apartment: '' },
+  { id: 128, name: '378', apartment: '' }
+]
+   condominiumList length: 18
+✅ Unread count: 0
+🔍 /api/users/:id endpoint called, id= 41
+🔍 /api/users endpoint called
+   admin-permissions header: {"scope":"full","allowed_condominiums":null}
+   Parsed permissions: { scope: 'full', allowed_condominiums: null }
+   Admin has full access - showing all users
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '262' ]
+🔍 DEBUG - User 501460888:
+   Raw condominium_details: 24:131:,26:133:,34:146:,43:160:,79:238:,80:239:,83:242:,84:247:,85:248:,86:249:,88:253:,89:254:,91:258:,92:259:,94:268:,95:270:,109:310:,128:378:
+   Parsed condominiumList: [
+  { id: 24, name: '131', apartment: '' },
+  { id: 26, name: '133', apartment: '' },
+  { id: 34, name: '146', apartment: '' },
+  { id: 43, name: '160', apartment: '' },
+  { id: 79, name: '238', apartment: '' },
+  { id: 80, name: '239', apartment: '' },
+  { id: 83, name: '242', apartment: '' },
+  { id: 84, name: '247', apartment: '' },
+  { id: 85, name: '248', apartment: '' },
+  { id: 86, name: '249', apartment: '' },
+  { id: 88, name: '253', apartment: '' },
+  { id: 89, name: '254', apartment: '' },
+  { id: 91, name: '258', apartment: '' },
+  { id: 92, name: '259', apartment: '' },
+  { id: 94, name: '268', apartment: '' },
+  { id: 95, name: '270', apartment: '' },
+  { id: 109, name: '310', apartment: '' },
+  { id: 128, name: '378', apartment: '' }
+]
+   condominiumList length: 18
+✅ Unread count: 0
+🔍 /api/users/:id endpoint called, id= 21
+🔍 /api/users endpoint called
+   admin-permissions header: {"scope":"full","allowed_condominiums":null}
+   Parsed permissions: { scope: 'full', allowed_condominiums: null }
+   Admin has full access - showing all users
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '262' ]
+🔍 DEBUG - User 501460888:
+   Raw condominium_details: 24:131:,26:133:,34:146:,43:160:,79:238:,80:239:,83:242:,84:247:,85:248:,86:249:,88:253:,89:254:,91:258:,92:259:,94:268:,95:270:,109:310:,128:378:
+   Parsed condominiumList: [
+  { id: 24, name: '131', apartment: '' },
+  { id: 26, name: '133', apartment: '' },
+  { id: 34, name: '146', apartment: '' },
+  { id: 43, name: '160', apartment: '' },
+  { id: 79, name: '238', apartment: '' },
+  { id: 80, name: '239', apartment: '' },
+  { id: 83, name: '242', apartment: '' },
+  { id: 84, name: '247', apartment: '' },
+  { id: 85, name: '248', apartment: '' },
+  { id: 86, name: '249', apartment: '' },
+  { id: 88, name: '253', apartment: '' },
+  { id: 89, name: '254', apartment: '' },
+  { id: 91, name: '258', apartment: '' },
+  { id: 92, name: '259', apartment: '' },
+  { id: 94, name: '268', apartment: '' },
+  { id: 95, name: '270', apartment: '' },
+  { id: 109, name: '310', apartment: '' },
+  { id: 128, name: '378', apartment: '' }
+]
+   condominiumList length: 18
+✅ Unread count: 0
+🔍 /api/users/:id endpoint called, id= 203
+🔍 /api/users endpoint called
+   admin-permissions header: {"scope":"full","allowed_condominiums":null}
+   Parsed permissions: { scope: 'full', allowed_condominiums: null }
+   Admin has full access - showing all users
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '262' ]
+🔍 DEBUG - User 501460888:
+   Raw condominium_details: 24:131:,26:133:,34:146:,43:160:,79:238:,80:239:,83:242:,84:247:,85:248:,86:249:,88:253:,89:254:,91:258:,92:259:,94:268:,95:270:,109:310:,128:378:
+   Parsed condominiumList: [
+  { id: 24, name: '131', apartment: '' },
+  { id: 26, name: '133', apartment: '' },
+  { id: 34, name: '146', apartment: '' },
+  { id: 43, name: '160', apartment: '' },
+  { id: 79, name: '238', apartment: '' },
+  { id: 80, name: '239', apartment: '' },
+  { id: 83, name: '242', apartment: '' },
+  { id: 84, name: '247', apartment: '' },
+  { id: 85, name: '248', apartment: '' },
+  { id: 86, name: '249', apartment: '' },
+  { id: 88, name: '253', apartment: '' },
+  { id: 89, name: '254', apartment: '' },
+  { id: 91, name: '258', apartment: '' },
+  { id: 92, name: '259', apartment: '' },
+  { id: 94, name: '268', apartment: '' },
+  { id: 95, name: '270', apartment: '' },
+  { id: 109, name: '310', apartment: '' },
+  { id: 128, name: '378', apartment: '' }
+]
+   condominiumList length: 18
+✅ Unread count: 0
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '262' ]
+✅ Unread count: 0
+🔍 /api/users/:id endpoint called, id= 1151
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '262' ]
+🔍 /api/users endpoint called
+   admin-permissions header: {"scope":"full","allowed_condominiums":null}
+   Parsed permissions: { scope: 'full', allowed_condominiums: null }
+   Admin has full access - showing all users
+✅ Unread count: 0
+🔍 DEBUG - User 501460888:
+   Raw condominium_details: 24:131:,26:133:,34:146:,43:160:,79:238:,80:239:,83:242:,84:247:,85:248:,86:249:,88:253:,89:254:,91:258:,92:259:,94:268:,95:270:,109:310:,128:378:
+   Parsed condominiumList: [
+  { id: 24, name: '131', apartment: '' },
+  { id: 26, name: '133', apartment: '' },
+  { id: 34, name: '146', apartment: '' },
+  { id: 43, name: '160', apartment: '' },
+  { id: 79, name: '238', apartment: '' },
+  { id: 80, name: '239', apartment: '' },
+  { id: 83, name: '242', apartment: '' },
+  { id: 84, name: '247', apartment: '' },
+  { id: 85, name: '248', apartment: '' },
+  { id: 86, name: '249', apartment: '' },
+  { id: 88, name: '253', apartment: '' },
+  { id: 89, name: '254', apartment: '' },
+  { id: 91, name: '258', apartment: '' },
+  { id: 92, name: '259', apartment: '' },
+  { id: 94, name: '268', apartment: '' },
+  { id: 95, name: '270', apartment: '' },
+  { id: 109, name: '310', apartment: '' },
+  { id: 128, name: '378', apartment: '' }
+]
+   condominiumList length: 18
+🔍 /api/users/:id endpoint called, id= 367
+🔍 /api/users endpoint called
+   admin-permissions header: {"scope":"full","allowed_condominiums":null}
+   Parsed permissions: { scope: 'full', allowed_condominiums: null }
+   Admin has full access - showing all users
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '262' ]
+🔍 DEBUG - User 501460888:
+   Raw condominium_details: 24:131:,26:133:,34:146:,43:160:,79:238:,80:239:,83:242:,84:247:,85:248:,86:249:,88:253:,89:254:,91:258:,92:259:,94:268:,95:270:,109:310:,128:378:
+   Parsed condominiumList: [
+  { id: 24, name: '131', apartment: '' },
+  { id: 26, name: '133', apartment: '' },
+  { id: 34, name: '146', apartment: '' },
+  { id: 43, name: '160', apartment: '' },
+  { id: 79, name: '238', apartment: '' },
+  { id: 80, name: '239', apartment: '' },
+  { id: 83, name: '242', apartment: '' },
+  { id: 84, name: '247', apartment: '' },
+  { id: 85, name: '248', apartment: '' },
+  { id: 86, name: '249', apartment: '' },
+  { id: 88, name: '253', apartment: '' },
+  { id: 89, name: '254', apartment: '' },
+  { id: 91, name: '258', apartment: '' },
+  { id: 92, name: '259', apartment: '' },
+  { id: 94, name: '268', apartment: '' },
+  { id: 95, name: '270', apartment: '' },
+  { id: 109, name: '310', apartment: '' },
+  { id: 128, name: '378', apartment: '' }
+]
+   condominiumList length: 18
+✅ Unread count: 0
+🔍 /api/users/:id endpoint called, id= 710
+🔍 /api/users endpoint called
+   admin-permissions header: {"scope":"full","allowed_condominiums":null}
+   Parsed permissions: { scope: 'full', allowed_condominiums: null }
+   Admin has full access - showing all users
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '262' ]
+🔍 DEBUG - User 501460888:
+   Raw condominium_details: 24:131:,26:133:,34:146:,43:160:,79:238:,80:239:,83:242:,84:247:,85:248:,86:249:,88:253:,89:254:,91:258:,92:259:,94:268:,95:270:,109:310:,128:378:
+   Parsed condominiumList: [
+  { id: 24, name: '131', apartment: '' },
+  { id: 26, name: '133', apartment: '' },
+  { id: 34, name: '146', apartment: '' },
+  { id: 43, name: '160', apartment: '' },
+  { id: 79, name: '238', apartment: '' },
+  { id: 80, name: '239', apartment: '' },
+  { id: 83, name: '242', apartment: '' },
+  { id: 84, name: '247', apartment: '' },
+  { id: 85, name: '248', apartment: '' },
+  { id: 86, name: '249', apartment: '' },
+  { id: 88, name: '253', apartment: '' },
+  { id: 89, name: '254', apartment: '' },
+  { id: 91, name: '258', apartment: '' },
+  { id: 92, name: '259', apartment: '' },
+  { id: 94, name: '268', apartment: '' },
+  { id: 95, name: '270', apartment: '' },
+  { id: 109, name: '310', apartment: '' },
+  { id: 128, name: '378', apartment: '' }
+]
+   condominiumList length: 18
+✅ Unread count: 0
+🔍 /api/users/:id endpoint called, id= 855
+🔍 /api/users endpoint called
+   admin-permissions header: {"scope":"full","allowed_condominiums":null}
+   Parsed permissions: { scope: 'full', allowed_condominiums: null }
+   Admin has full access - showing all users
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '262' ]
+🔍 DEBUG - User 501460888:
+   Raw condominium_details: 24:131:,26:133:,34:146:,43:160:,79:238:,80:239:,83:242:,84:247:,85:248:,86:249:,88:253:,89:254:,91:258:,92:259:,94:268:,95:270:,109:310:,128:378:
+   Parsed condominiumList: [
+  { id: 24, name: '131', apartment: '' },
+  { id: 26, name: '133', apartment: '' },
+  { id: 34, name: '146', apartment: '' },
+  { id: 43, name: '160', apartment: '' },
+  { id: 79, name: '238', apartment: '' },
+  { id: 80, name: '239', apartment: '' },
+  { id: 83, name: '242', apartment: '' },
+  { id: 84, name: '247', apartment: '' },
+  { id: 85, name: '248', apartment: '' },
+  { id: 86, name: '249', apartment: '' },
+  { id: 88, name: '253', apartment: '' },
+  { id: 89, name: '254', apartment: '' },
+  { id: 91, name: '258', apartment: '' },
+  { id: 92, name: '259', apartment: '' },
+  { id: 94, name: '268', apartment: '' },
+  { id: 95, name: '270', apartment: '' },
+  { id: 109, name: '310', apartment: '' },
+  { id: 128, name: '378', apartment: '' }
+]
+   condominiumList length: 18
+✅ Unread count: 0
+🔍 /api/users/:id endpoint called, id= 866
+🔍 /api/users endpoint called
+   admin-permissions header: {"scope":"full","allowed_condominiums":null}
+   Parsed permissions: { scope: 'full', allowed_condominiums: null }
+   Admin has full access - showing all users
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '262' ]
+🔍 DEBUG - User 501460888:
+   Raw condominium_details: 24:131:,26:133:,34:146:,43:160:,79:238:,80:239:,83:242:,84:247:,85:248:,86:249:,88:253:,89:254:,91:258:,92:259:,94:268:,95:270:,109:310:,128:378:
+   Parsed condominiumList: [
+  { id: 24, name: '131', apartment: '' },
+  { id: 26, name: '133', apartment: '' },
+  { id: 34, name: '146', apartment: '' },
+  { id: 43, name: '160', apartment: '' },
+  { id: 79, name: '238', apartment: '' },
+  { id: 80, name: '239', apartment: '' },
+  { id: 83, name: '242', apartment: '' },
+  { id: 84, name: '247', apartment: '' },
+  { id: 85, name: '248', apartment: '' },
+  { id: 86, name: '249', apartment: '' },
+  { id: 88, name: '253', apartment: '' },
+  { id: 89, name: '254', apartment: '' },
+  { id: 91, name: '258', apartment: '' },
+  { id: 92, name: '259', apartment: '' },
+  { id: 94, name: '268', apartment: '' },
+  { id: 95, name: '270', apartment: '' },
+  { id: 109, name: '310', apartment: '' },
+  { id: 128, name: '378', apartment: '' }
+]
+   condominiumList length: 18
+✅ Unread count: 0
+🔍 /api/users/:id endpoint called, id= 1291
+🔍 /api/users endpoint called
+   admin-permissions header: {"scope":"full","allowed_condominiums":null}
+   Parsed permissions: { scope: 'full', allowed_condominiums: null }
+   Admin has full access - showing all users
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '262' ]
+🔍 DEBUG - User 501460888:
+   Raw condominium_details: 24:131:,26:133:,34:146:,43:160:,79:238:,80:239:,83:242:,84:247:,85:248:,86:249:,88:253:,89:254:,91:258:,92:259:,94:268:,95:270:,109:310:,128:378:
+   Parsed condominiumList: [
+  { id: 24, name: '131', apartment: '' },
+  { id: 26, name: '133', apartment: '' },
+  { id: 34, name: '146', apartment: '' },
+  { id: 43, name: '160', apartment: '' },
+  { id: 79, name: '238', apartment: '' },
+  { id: 80, name: '239', apartment: '' },
+  { id: 83, name: '242', apartment: '' },
+  { id: 84, name: '247', apartment: '' },
+  { id: 85, name: '248', apartment: '' },
+  { id: 86, name: '249', apartment: '' },
+  { id: 88, name: '253', apartment: '' },
+  { id: 89, name: '254', apartment: '' },
+  { id: 91, name: '258', apartment: '' },
+  { id: 92, name: '259', apartment: '' },
+  { id: 94, name: '268', apartment: '' },
+  { id: 95, name: '270', apartment: '' },
+  { id: 109, name: '310', apartment: '' },
+  { id: 128, name: '378', apartment: '' }
+]
+   condominiumList length: 18
+✅ Unread count: 0
+🔍 /api/users/:id endpoint called, id= 1259
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '262' ]
+✅ Unread count: 0
+🔍 /api/users endpoint called
+   admin-permissions header: {"scope":"full","allowed_condominiums":null}
+   Parsed permissions: { scope: 'full', allowed_condominiums: null }
+   Admin has full access - showing all users
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '262' ]
+🔍 DEBUG - User 501460888:
+   Raw condominium_details: 24:131:,26:133:,34:146:,43:160:,79:238:,80:239:,83:242:,84:247:,85:248:,86:249:,88:253:,89:254:,91:258:,92:259:,94:268:,95:270:,109:310:,128:378:
+   Parsed condominiumList: [
+  { id: 24, name: '131', apartment: '' },
+  { id: 26, name: '133', apartment: '' },
+  { id: 34, name: '146', apartment: '' },
+  { id: 43, name: '160', apartment: '' },
+  { id: 79, name: '238', apartment: '' },
+  { id: 80, name: '239', apartment: '' },
+  { id: 83, name: '242', apartment: '' },
+  { id: 84, name: '247', apartment: '' },
+  { id: 85, name: '248', apartment: '' },
+  { id: 86, name: '249', apartment: '' },
+  { id: 88, name: '253', apartment: '' },
+  { id: 89, name: '254', apartment: '' },
+  { id: 91, name: '258', apartment: '' },
+  { id: 92, name: '259', apartment: '' },
+  { id: 94, name: '268', apartment: '' },
+  { id: 95, name: '270', apartment: '' },
+  { id: 109, name: '310', apartment: '' },
+  { id: 128, name: '378', apartment: '' }
+]
+   condominiumList length: 18
+✅ Unread count: 0
+🔍 /api/users/:id endpoint called, id= 955
+🔍 /api/users endpoint called
+   admin-permissions header: {"scope":"full","allowed_condominiums":null}
+   Parsed permissions: { scope: 'full', allowed_condominiums: null }
+   Admin has full access - showing all users
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '262' ]
+🔍 DEBUG - User 501460888:
+   Raw condominium_details: 24:131:,26:133:,34:146:,43:160:,79:238:,80:239:,83:242:,84:247:,85:248:,86:249:,88:253:,89:254:,91:258:,92:259:,94:268:,95:270:,109:310:,128:378:
+   Parsed condominiumList: [
+  { id: 24, name: '131', apartment: '' },
+  { id: 26, name: '133', apartment: '' },
+  { id: 34, name: '146', apartment: '' },
+  { id: 43, name: '160', apartment: '' },
+  { id: 79, name: '238', apartment: '' },
+  { id: 80, name: '239', apartment: '' },
+  { id: 83, name: '242', apartment: '' },
+  { id: 84, name: '247', apartment: '' },
+  { id: 85, name: '248', apartment: '' },
+  { id: 86, name: '249', apartment: '' },
+  { id: 88, name: '253', apartment: '' },
+  { id: 89, name: '254', apartment: '' },
+  { id: 91, name: '258', apartment: '' },
+  { id: 92, name: '259', apartment: '' },
+  { id: 94, name: '268', apartment: '' },
+  { id: 95, name: '270', apartment: '' },
+  { id: 109, name: '310', apartment: '' },
+  { id: 128, name: '378', apartment: '' }
+]
+   condominiumList length: 18
+✅ Unread count: 0
+🔍 /api/users/:id endpoint called, id= 1432
+🔍 /api/users endpoint called
+   admin-permissions header: {"scope":"full","allowed_condominiums":null}
+   Parsed permissions: { scope: 'full', allowed_condominiums: null }
+   Admin has full access - showing all users
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '262' ]
+🔍 DEBUG - User 501460888:
+   Raw condominium_details: 24:131:,26:133:,34:146:,43:160:,79:238:,80:239:,83:242:,84:247:,85:248:,86:249:,88:253:,89:254:,91:258:,92:259:,94:268:,95:270:,109:310:,128:378:
+   Parsed condominiumList: [
+  { id: 24, name: '131', apartment: '' },
+  { id: 26, name: '133', apartment: '' },
+  { id: 34, name: '146', apartment: '' },
+  { id: 43, name: '160', apartment: '' },
+  { id: 79, name: '238', apartment: '' },
+  { id: 80, name: '239', apartment: '' },
+  { id: 83, name: '242', apartment: '' },
+  { id: 84, name: '247', apartment: '' },
+  { id: 85, name: '248', apartment: '' },
+  { id: 86, name: '249', apartment: '' },
+  { id: 88, name: '253', apartment: '' },
+  { id: 89, name: '254', apartment: '' },
+  { id: 91, name: '258', apartment: '' },
+  { id: 92, name: '259', apartment: '' },
+  { id: 94, name: '268', apartment: '' },
+  { id: 95, name: '270', apartment: '' },
+  { id: 109, name: '310', apartment: '' },
+  { id: 128, name: '378', apartment: '' }
+]
+   condominiumList length: 18
+✅ Unread count: 0
+🔍 /api/users/:id endpoint called, id= 1367
+🔍 /api/users endpoint called
+   admin-permissions header: {"scope":"full","allowed_condominiums":null}
+   Parsed permissions: { scope: 'full', allowed_condominiums: null }
+   Admin has full access - showing all users
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '262' ]
+🔍 DEBUG - User 501460888:
+   Raw condominium_details: 24:131:,26:133:,34:146:,43:160:,79:238:,80:239:,83:242:,84:247:,85:248:,86:249:,88:253:,89:254:,91:258:,92:259:,94:268:,95:270:,109:310:,128:378:
+   Parsed condominiumList: [
+  { id: 24, name: '131', apartment: '' },
+  { id: 26, name: '133', apartment: '' },
+  { id: 34, name: '146', apartment: '' },
+  { id: 43, name: '160', apartment: '' },
+  { id: 79, name: '238', apartment: '' },
+  { id: 80, name: '239', apartment: '' },
+  { id: 83, name: '242', apartment: '' },
+  { id: 84, name: '247', apartment: '' },
+  { id: 85, name: '248', apartment: '' },
+  { id: 86, name: '249', apartment: '' },
+  { id: 88, name: '253', apartment: '' },
+  { id: 89, name: '254', apartment: '' },
+  { id: 91, name: '258', apartment: '' },
+  { id: 92, name: '259', apartment: '' },
+  { id: 94, name: '268', apartment: '' },
+  { id: 95, name: '270', apartment: '' },
+  { id: 109, name: '310', apartment: '' },
+  { id: 128, name: '378', apartment: '' }
+]
+   condominiumList length: 18
+✅ Unread count: 0
+🔍 /api/users/:id endpoint called, id= 1459
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '262' ]
+🔍 /api/users endpoint called
+   admin-permissions header: {"scope":"full","allowed_condominiums":null}
+   Parsed permissions: { scope: 'full', allowed_condominiums: null }
+   Admin has full access - showing all users
+✅ Unread count: 0
+🔍 DEBUG - User 501460888:
+   Raw condominium_details: 24:131:,26:133:,34:146:,43:160:,79:238:,80:239:,83:242:,84:247:,85:248:,86:249:,88:253:,89:254:,91:258:,92:259:,94:268:,95:270:,109:310:,128:378:
+   Parsed condominiumList: [
+  { id: 24, name: '131', apartment: '' },
+  { id: 26, name: '133', apartment: '' },
+  { id: 34, name: '146', apartment: '' },
+  { id: 43, name: '160', apartment: '' },
+  { id: 79, name: '238', apartment: '' },
+  { id: 80, name: '239', apartment: '' },
+  { id: 83, name: '242', apartment: '' },
+  { id: 84, name: '247', apartment: '' },
+  { id: 85, name: '248', apartment: '' },
+  { id: 86, name: '249', apartment: '' },
+  { id: 88, name: '253', apartment: '' },
+  { id: 89, name: '254', apartment: '' },
+  { id: 91, name: '258', apartment: '' },
+  { id: 92, name: '259', apartment: '' },
+  { id: 94, name: '268', apartment: '' },
+  { id: 95, name: '270', apartment: '' },
+  { id: 109, name: '310', apartment: '' },
+  { id: 128, name: '378', apartment: '' }
+]
+   condominiumList length: 18
+🔍 /api/users/:id endpoint called, id= 1095
+🔍 /api/users endpoint called
+   admin-permissions header: {"scope":"full","allowed_condominiums":null}
+   Parsed permissions: { scope: 'full', allowed_condominiums: null }
+   Admin has full access - showing all users
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '262' ]
+🔍 DEBUG - User 501460888:
+   Raw condominium_details: 24:131:,26:133:,34:146:,43:160:,79:238:,80:239:,83:242:,84:247:,85:248:,86:249:,88:253:,89:254:,91:258:,92:259:,94:268:,95:270:,109:310:,128:378:
+   Parsed condominiumList: [
+  { id: 24, name: '131', apartment: '' },
+  { id: 26, name: '133', apartment: '' },
+  { id: 34, name: '146', apartment: '' },
+  { id: 43, name: '160', apartment: '' },
+  { id: 79, name: '238', apartment: '' },
+  { id: 80, name: '239', apartment: '' },
+  { id: 83, name: '242', apartment: '' },
+  { id: 84, name: '247', apartment: '' },
+  { id: 85, name: '248', apartment: '' },
+  { id: 86, name: '249', apartment: '' },
+  { id: 88, name: '253', apartment: '' },
+  { id: 89, name: '254', apartment: '' },
+  { id: 91, name: '258', apartment: '' },
+  { id: 92, name: '259', apartment: '' },
+  { id: 94, name: '268', apartment: '' },
+  { id: 95, name: '270', apartment: '' },
+  { id: 109, name: '310', apartment: '' },
+  { id: 128, name: '378', apartment: '' }
+]
+   condominiumList length: 18
+✅ Unread count: 0
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '262' ]
+✅ Unread count: 0
+🔍 /api/users/:id endpoint called, id= 1431
+🔍 /api/users endpoint called
+   admin-permissions header: {"scope":"full","allowed_condominiums":null}
+   Parsed permissions: { scope: 'full', allowed_condominiums: null }
+   Admin has full access - showing all users
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '262' ]
+🔍 DEBUG - User 501460888:
+   Raw condominium_details: 24:131:,26:133:,34:146:,43:160:,79:238:,80:239:,83:242:,84:247:,85:248:,86:249:,88:253:,89:254:,91:258:,92:259:,94:268:,95:270:,109:310:,128:378:
+   Parsed condominiumList: [
+  { id: 24, name: '131', apartment: '' },
+  { id: 26, name: '133', apartment: '' },
+  { id: 34, name: '146', apartment: '' },
+  { id: 43, name: '160', apartment: '' },
+  { id: 79, name: '238', apartment: '' },
+  { id: 80, name: '239', apartment: '' },
+  { id: 83, name: '242', apartment: '' },
+  { id: 84, name: '247', apartment: '' },
+  { id: 85, name: '248', apartment: '' },
+  { id: 86, name: '249', apartment: '' },
+  { id: 88, name: '253', apartment: '' },
+  { id: 89, name: '254', apartment: '' },
+  { id: 91, name: '258', apartment: '' },
+  { id: 92, name: '259', apartment: '' },
+  { id: 94, name: '268', apartment: '' },
+  { id: 95, name: '270', apartment: '' },
+  { id: 109, name: '310', apartment: '' },
+  { id: 128, name: '378', apartment: '' }
+]
+   condominiumList length: 18
+✅ Unread count: 0
+🔍 /api/users/:id endpoint called, id= 874
+🔍 /api/users endpoint called
+   admin-permissions header: {"scope":"full","allowed_condominiums":null}
+   Parsed permissions: { scope: 'full', allowed_condominiums: null }
+   Admin has full access - showing all users
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '262' ]
+🔍 DEBUG - User 501460888:
+   Raw condominium_details: 24:131:,26:133:,34:146:,43:160:,79:238:,80:239:,83:242:,84:247:,85:248:,86:249:,88:253:,89:254:,91:258:,92:259:,94:268:,95:270:,109:310:,128:378:
+   Parsed condominiumList: [
+  { id: 24, name: '131', apartment: '' },
+  { id: 26, name: '133', apartment: '' },
+  { id: 34, name: '146', apartment: '' },
+  { id: 43, name: '160', apartment: '' },
+  { id: 79, name: '238', apartment: '' },
+  { id: 80, name: '239', apartment: '' },
+  { id: 83, name: '242', apartment: '' },
+  { id: 84, name: '247', apartment: '' },
+  { id: 85, name: '248', apartment: '' },
+  { id: 86, name: '249', apartment: '' },
+  { id: 88, name: '253', apartment: '' },
+  { id: 89, name: '254', apartment: '' },
+  { id: 91, name: '258', apartment: '' },
+  { id: 92, name: '259', apartment: '' },
+  { id: 94, name: '268', apartment: '' },
+  { id: 95, name: '270', apartment: '' },
+  { id: 109, name: '310', apartment: '' },
+  { id: 128, name: '378', apartment: '' }
+]
+   condominiumList length: 18
+✅ Unread count: 0
+🔍 /api/users/:id endpoint called, id= 618
+🔍 /api/users endpoint called
+   admin-permissions header: {"scope":"full","allowed_condominiums":null}
+   Parsed permissions: { scope: 'full', allowed_condominiums: null }
+   Admin has full access - showing all users
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '262' ]
+🔍 DEBUG - User 501460888:
+   Raw condominium_details: 24:131:,26:133:,34:146:,43:160:,79:238:,80:239:,83:242:,84:247:,85:248:,86:249:,88:253:,89:254:,91:258:,92:259:,94:268:,95:270:,109:310:,128:378:
+   Parsed condominiumList: [
+  { id: 24, name: '131', apartment: '' },
+  { id: 26, name: '133', apartment: '' },
+  { id: 34, name: '146', apartment: '' },
+  { id: 43, name: '160', apartment: '' },
+  { id: 79, name: '238', apartment: '' },
+  { id: 80, name: '239', apartment: '' },
+  { id: 83, name: '242', apartment: '' },
+  { id: 84, name: '247', apartment: '' },
+  { id: 85, name: '248', apartment: '' },
+  { id: 86, name: '249', apartment: '' },
+  { id: 88, name: '253', apartment: '' },
+  { id: 89, name: '254', apartment: '' },
+  { id: 91, name: '258', apartment: '' },
+  { id: 92, name: '259', apartment: '' },
+  { id: 94, name: '268', apartment: '' },
+  { id: 95, name: '270', apartment: '' },
+  { id: 109, name: '310', apartment: '' },
+  { id: 128, name: '378', apartment: '' }
+]
+   condominiumList length: 18
+✅ Unread count: 0
+🔍 /api/users/:id endpoint called, id= 749
+🔍 /api/users endpoint called
+   admin-permissions header: {"scope":"full","allowed_condominiums":null}
+   Parsed permissions: { scope: 'full', allowed_condominiums: null }
+   Admin has full access - showing all users
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '262' ]
+🔍 DEBUG - User 501460888:
+   Raw condominium_details: 24:131:,26:133:,34:146:,43:160:,79:238:,80:239:,83:242:,84:247:,85:248:,86:249:,88:253:,89:254:,91:258:,92:259:,94:268:,95:270:,109:310:,128:378:
+   Parsed condominiumList: [
+  { id: 24, name: '131', apartment: '' },
+  { id: 26, name: '133', apartment: '' },
+  { id: 34, name: '146', apartment: '' },
+  { id: 43, name: '160', apartment: '' },
+  { id: 79, name: '238', apartment: '' },
+  { id: 80, name: '239', apartment: '' },
+  { id: 83, name: '242', apartment: '' },
+  { id: 84, name: '247', apartment: '' },
+  { id: 85, name: '248', apartment: '' },
+  { id: 86, name: '249', apartment: '' },
+  { id: 88, name: '253', apartment: '' },
+  { id: 89, name: '254', apartment: '' },
+  { id: 91, name: '258', apartment: '' },
+  { id: 92, name: '259', apartment: '' },
+  { id: 94, name: '268', apartment: '' },
+  { id: 95, name: '270', apartment: '' },
+  { id: 109, name: '310', apartment: '' },
+  { id: 128, name: '378', apartment: '' }
+]
+   condominiumList length: 18
+✅ Unread count: 0
+🔍 /api/users/:id endpoint called, id= 984
+🔍 /api/users endpoint called
+   admin-permissions header: {"scope":"full","allowed_condominiums":null}
+   Parsed permissions: { scope: 'full', allowed_condominiums: null }
+   Admin has full access - showing all users
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '262' ]
+🔍 DEBUG - User 501460888:
+   Raw condominium_details: 24:131:,26:133:,34:146:,43:160:,79:238:,80:239:,83:242:,84:247:,85:248:,86:249:,88:253:,89:254:,91:258:,92:259:,94:268:,95:270:,109:310:,128:378:
+   Parsed condominiumList: [
+  { id: 24, name: '131', apartment: '' },
+  { id: 26, name: '133', apartment: '' },
+  { id: 34, name: '146', apartment: '' },
+  { id: 43, name: '160', apartment: '' },
+  { id: 79, name: '238', apartment: '' },
+  { id: 80, name: '239', apartment: '' },
+  { id: 83, name: '242', apartment: '' },
+  { id: 84, name: '247', apartment: '' },
+  { id: 85, name: '248', apartment: '' },
+  { id: 86, name: '249', apartment: '' },
+  { id: 88, name: '253', apartment: '' },
+  { id: 89, name: '254', apartment: '' },
+  { id: 91, name: '258', apartment: '' },
+  { id: 92, name: '259', apartment: '' },
+  { id: 94, name: '268', apartment: '' },
+  { id: 95, name: '270', apartment: '' },
+  { id: 109, name: '310', apartment: '' },
+  { id: 128, name: '378', apartment: '' }
+]
+   condominiumList length: 18
+✅ Unread count: 0
+🔍 /api/users/:id endpoint called, id= 588
+🔍 /api/users endpoint called
+   admin-permissions header: {"scope":"full","allowed_condominiums":null}
+   Parsed permissions: { scope: 'full', allowed_condominiums: null }
+   Admin has full access - showing all users
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '262' ]
+🔍 DEBUG - User 501460888:
+   Raw condominium_details: 24:131:,26:133:,34:146:,43:160:,79:238:,80:239:,83:242:,84:247:,85:248:,86:249:,88:253:,89:254:,91:258:,92:259:,94:268:,95:270:,109:310:,128:378:
+   Parsed condominiumList: [
+  { id: 24, name: '131', apartment: '' },
+  { id: 26, name: '133', apartment: '' },
+  { id: 34, name: '146', apartment: '' },
+  { id: 43, name: '160', apartment: '' },
+  { id: 79, name: '238', apartment: '' },
+  { id: 80, name: '239', apartment: '' },
+  { id: 83, name: '242', apartment: '' },
+  { id: 84, name: '247', apartment: '' },
+  { id: 85, name: '248', apartment: '' },
+  { id: 86, name: '249', apartment: '' },
+  { id: 88, name: '253', apartment: '' },
+  { id: 89, name: '254', apartment: '' },
+  { id: 91, name: '258', apartment: '' },
+  { id: 92, name: '259', apartment: '' },
+  { id: 94, name: '268', apartment: '' },
+  { id: 95, name: '270', apartment: '' },
+  { id: 109, name: '310', apartment: '' },
+  { id: 128, name: '378', apartment: '' }
+]
+   condominiumList length: 18
+✅ Unread count: 0
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '262' ]
+✅ Unread count: 0
+🔍 /api/users/:id endpoint called, id= 411
+🔍 /api/users endpoint called
+   admin-permissions header: {"scope":"full","allowed_condominiums":null}
+   Parsed permissions: { scope: 'full', allowed_condominiums: null }
+   Admin has full access - showing all users
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '262' ]
+🔍 DEBUG - User 501460888:
+   Raw condominium_details: 24:131:,26:133:,34:146:,43:160:,79:238:,80:239:,83:242:,84:247:,85:248:,86:249:,88:253:,89:254:,91:258:,92:259:,94:268:,95:270:,109:310:,128:378:
+   Parsed condominiumList: [
+  { id: 24, name: '131', apartment: '' },
+  { id: 26, name: '133', apartment: '' },
+  { id: 34, name: '146', apartment: '' },
+  { id: 43, name: '160', apartment: '' },
+  { id: 79, name: '238', apartment: '' },
+  { id: 80, name: '239', apartment: '' },
+  { id: 83, name: '242', apartment: '' },
+  { id: 84, name: '247', apartment: '' },
+  { id: 85, name: '248', apartment: '' },
+  { id: 86, name: '249', apartment: '' },
+  { id: 88, name: '253', apartment: '' },
+  { id: 89, name: '254', apartment: '' },
+  { id: 91, name: '258', apartment: '' },
+  { id: 92, name: '259', apartment: '' },
+  { id: 94, name: '268', apartment: '' },
+  { id: 95, name: '270', apartment: '' },
+  { id: 109, name: '310', apartment: '' },
+  { id: 128, name: '378', apartment: '' }
+]
+   condominiumList length: 18
+✅ Unread count: 0
+🔍 /api/users/:id endpoint called, id= 441
+🔍 /api/users endpoint called
+   admin-permissions header: {"scope":"full","allowed_condominiums":null}
+   Parsed permissions: { scope: 'full', allowed_condominiums: null }
+   Admin has full access - showing all users
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '262' ]
+🔍 DEBUG - User 501460888:
+   Raw condominium_details: 24:131:,26:133:,34:146:,43:160:,79:238:,80:239:,83:242:,84:247:,85:248:,86:249:,88:253:,89:254:,91:258:,92:259:,94:268:,95:270:,109:310:,128:378:
+   Parsed condominiumList: [
+  { id: 24, name: '131', apartment: '' },
+  { id: 26, name: '133', apartment: '' },
+  { id: 34, name: '146', apartment: '' },
+  { id: 43, name: '160', apartment: '' },
+  { id: 79, name: '238', apartment: '' },
+  { id: 80, name: '239', apartment: '' },
+  { id: 83, name: '242', apartment: '' },
+  { id: 84, name: '247', apartment: '' },
+  { id: 85, name: '248', apartment: '' },
+  { id: 86, name: '249', apartment: '' },
+  { id: 88, name: '253', apartment: '' },
+  { id: 89, name: '254', apartment: '' },
+  { id: 91, name: '258', apartment: '' },
+  { id: 92, name: '259', apartment: '' },
+  { id: 94, name: '268', apartment: '' },
+  { id: 95, name: '270', apartment: '' },
+  { id: 109, name: '310', apartment: '' },
+  { id: 128, name: '378', apartment: '' }
+]
+   condominiumList length: 18
+✅ Unread count: 0
+🔍 /api/users/:id endpoint called, id= 1095
+🔍 /api/users endpoint called
+   admin-permissions header: {"scope":"full","allowed_condominiums":null}
+   Parsed permissions: { scope: 'full', allowed_condominiums: null }
+   Admin has full access - showing all users
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '262' ]
+🔍 DEBUG - User 501460888:
+   Raw condominium_details: 24:131:,26:133:,34:146:,43:160:,79:238:,80:239:,83:242:,84:247:,85:248:,86:249:,88:253:,89:254:,91:258:,92:259:,94:268:,95:270:,109:310:,128:378:
+   Parsed condominiumList: [
+  { id: 24, name: '131', apartment: '' },
+  { id: 26, name: '133', apartment: '' },
+  { id: 34, name: '146', apartment: '' },
+  { id: 43, name: '160', apartment: '' },
+  { id: 79, name: '238', apartment: '' },
+  { id: 80, name: '239', apartment: '' },
+  { id: 83, name: '242', apartment: '' },
+  { id: 84, name: '247', apartment: '' },
+  { id: 85, name: '248', apartment: '' },
+  { id: 86, name: '249', apartment: '' },
+  { id: 88, name: '253', apartment: '' },
+  { id: 89, name: '254', apartment: '' },
+  { id: 91, name: '258', apartment: '' },
+  { id: 92, name: '259', apartment: '' },
+  { id: 94, name: '268', apartment: '' },
+  { id: 95, name: '270', apartment: '' },
+  { id: 109, name: '310', apartment: '' },
+  { id: 128, name: '378', apartment: '' }
+]
+   condominiumList length: 18
+✅ Unread count: 0
+🔍 /api/users/:id endpoint called, id= 206
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '262' ]
+✅ Unread count: 0
+🔍 /api/users endpoint called
+   admin-permissions header: {"scope":"full","allowed_condominiums":null}
+   Parsed permissions: { scope: 'full', allowed_condominiums: null }
+   Admin has full access - showing all users
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '262' ]
+🔍 DEBUG - User 501460888:
+   Raw condominium_details: 24:131:,26:133:,34:146:,43:160:,79:238:,80:239:,83:242:,84:247:,85:248:,86:249:,88:253:,89:254:,91:258:,92:259:,94:268:,95:270:,109:310:,128:378:
+   Parsed condominiumList: [
+  { id: 24, name: '131', apartment: '' },
+  { id: 26, name: '133', apartment: '' },
+  { id: 34, name: '146', apartment: '' },
+  { id: 43, name: '160', apartment: '' },
+  { id: 79, name: '238', apartment: '' },
+  { id: 80, name: '239', apartment: '' },
+  { id: 83, name: '242', apartment: '' },
+  { id: 84, name: '247', apartment: '' },
+  { id: 85, name: '248', apartment: '' },
+  { id: 86, name: '249', apartment: '' },
+  { id: 88, name: '253', apartment: '' },
+  { id: 89, name: '254', apartment: '' },
+  { id: 91, name: '258', apartment: '' },
+  { id: 92, name: '259', apartment: '' },
+  { id: 94, name: '268', apartment: '' },
+  { id: 95, name: '270', apartment: '' },
+  { id: 109, name: '310', apartment: '' },
+  { id: 128, name: '378', apartment: '' }
+]
+   condominiumList length: 18
+✅ Unread count: 0
+🔍 /api/users/:id endpoint called, id= 324
+🔍 /api/users endpoint called
+   admin-permissions header: {"scope":"full","allowed_condominiums":null}
+   Parsed permissions: { scope: 'full', allowed_condominiums: null }
+   Admin has full access - showing all users
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '262' ]
+🔍 DEBUG - User 501460888:
+   Raw condominium_details: 24:131:,26:133:,34:146:,43:160:,79:238:,80:239:,83:242:,84:247:,85:248:,86:249:,88:253:,89:254:,91:258:,92:259:,94:268:,95:270:,109:310:,128:378:
+   Parsed condominiumList: [
+  { id: 24, name: '131', apartment: '' },
+  { id: 26, name: '133', apartment: '' },
+  { id: 34, name: '146', apartment: '' },
+  { id: 43, name: '160', apartment: '' },
+  { id: 79, name: '238', apartment: '' },
+  { id: 80, name: '239', apartment: '' },
+  { id: 83, name: '242', apartment: '' },
+  { id: 84, name: '247', apartment: '' },
+  { id: 85, name: '248', apartment: '' },
+  { id: 86, name: '249', apartment: '' },
+  { id: 88, name: '253', apartment: '' },
+  { id: 89, name: '254', apartment: '' },
+  { id: 91, name: '258', apartment: '' },
+  { id: 92, name: '259', apartment: '' },
+  { id: 94, name: '268', apartment: '' },
+  { id: 95, name: '270', apartment: '' },
+  { id: 109, name: '310', apartment: '' },
+  { id: 128, name: '378', apartment: '' }
+]
+   condominiumList length: 18
+✅ Unread count: 0
+🔍 /api/users/:id endpoint called, id= 868
+🔍 /api/users endpoint called
+   admin-permissions header: {"scope":"full","allowed_condominiums":null}
+   Parsed permissions: { scope: 'full', allowed_condominiums: null }
+   Admin has full access - showing all users
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '262' ]
+🔍 DEBUG - User 501460888:
+   Raw condominium_details: 24:131:,26:133:,34:146:,43:160:,79:238:,80:239:,83:242:,84:247:,85:248:,86:249:,88:253:,89:254:,91:258:,92:259:,94:268:,95:270:,109:310:,128:378:
+   Parsed condominiumList: [
+  { id: 24, name: '131', apartment: '' },
+  { id: 26, name: '133', apartment: '' },
+  { id: 34, name: '146', apartment: '' },
+  { id: 43, name: '160', apartment: '' },
+  { id: 79, name: '238', apartment: '' },
+  { id: 80, name: '239', apartment: '' },
+  { id: 83, name: '242', apartment: '' },
+  { id: 84, name: '247', apartment: '' },
+  { id: 85, name: '248', apartment: '' },
+  { id: 86, name: '249', apartment: '' },
+  { id: 88, name: '253', apartment: '' },
+  { id: 89, name: '254', apartment: '' },
+  { id: 91, name: '258', apartment: '' },
+  { id: 92, name: '259', apartment: '' },
+  { id: 94, name: '268', apartment: '' },
+  { id: 95, name: '270', apartment: '' },
+  { id: 109, name: '310', apartment: '' },
+  { id: 128, name: '378', apartment: '' }
+]
+   condominiumList length: 18
+✅ Unread count: 0
+🔍 /api/users/:id endpoint called, id= 870
+🔍 /api/users endpoint called
+   admin-permissions header: {"scope":"full","allowed_condominiums":null}
+   Parsed permissions: { scope: 'full', allowed_condominiums: null }
+   Admin has full access - showing all users
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '262' ]
+🔍 DEBUG - User 501460888:
+   Raw condominium_details: 24:131:,26:133:,34:146:,43:160:,79:238:,80:239:,83:242:,84:247:,85:248:,86:249:,88:253:,89:254:,91:258:,92:259:,94:268:,95:270:,109:310:,128:378:
+   Parsed condominiumList: [
+  { id: 24, name: '131', apartment: '' },
+  { id: 26, name: '133', apartment: '' },
+  { id: 34, name: '146', apartment: '' },
+  { id: 43, name: '160', apartment: '' },
+  { id: 79, name: '238', apartment: '' },
+  { id: 80, name: '239', apartment: '' },
+  { id: 83, name: '242', apartment: '' },
+  { id: 84, name: '247', apartment: '' },
+  { id: 85, name: '248', apartment: '' },
+  { id: 86, name: '249', apartment: '' },
+  { id: 88, name: '253', apartment: '' },
+  { id: 89, name: '254', apartment: '' },
+  { id: 91, name: '258', apartment: '' },
+  { id: 92, name: '259', apartment: '' },
+  { id: 94, name: '268', apartment: '' },
+  { id: 95, name: '270', apartment: '' },
+  { id: 109, name: '310', apartment: '' },
+  { id: 128, name: '378', apartment: '' }
+]
+   condominiumList length: 18
+✅ Unread count: 0
+🔍 /api/users/:id endpoint called, id= 812
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '262' ]
+🔍 /api/users endpoint called
+   admin-permissions header: {"scope":"full","allowed_condominiums":null}
+   Parsed permissions: { scope: 'full', allowed_condominiums: null }
+   Admin has full access - showing all users
+✅ Unread count: 0
+🔍 DEBUG - User 501460888:
+   Raw condominium_details: 24:131:,26:133:,34:146:,43:160:,79:238:,80:239:,83:242:,84:247:,85:248:,86:249:,88:253:,89:254:,91:258:,92:259:,94:268:,95:270:,109:310:,128:378:
+   Parsed condominiumList: [
+  { id: 24, name: '131', apartment: '' },
+  { id: 26, name: '133', apartment: '' },
+  { id: 34, name: '146', apartment: '' },
+  { id: 43, name: '160', apartment: '' },
+  { id: 79, name: '238', apartment: '' },
+  { id: 80, name: '239', apartment: '' },
+  { id: 83, name: '242', apartment: '' },
+  { id: 84, name: '247', apartment: '' },
+  { id: 85, name: '248', apartment: '' },
+  { id: 86, name: '249', apartment: '' },
+  { id: 88, name: '253', apartment: '' },
+  { id: 89, name: '254', apartment: '' },
+  { id: 91, name: '258', apartment: '' },
+  { id: 92, name: '259', apartment: '' },
+  { id: 94, name: '268', apartment: '' },
+  { id: 95, name: '270', apartment: '' },
+  { id: 109, name: '310', apartment: '' },
+  { id: 128, name: '378', apartment: '' }
+]
+   condominiumList length: 18
+🔍 /api/users/:id endpoint called, id= 1521
+🔍 /api/users endpoint called
+   admin-permissions header: {"scope":"full","allowed_condominiums":null}
+   Parsed permissions: { scope: 'full', allowed_condominiums: null }
+   Admin has full access - showing all users
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '262' ]
+🔍 DEBUG - User 501460888:
+   Raw condominium_details: 24:131:,26:133:,34:146:,43:160:,79:238:,80:239:,83:242:,84:247:,85:248:,86:249:,88:253:,89:254:,91:258:,92:259:,94:268:,95:270:,109:310:,128:378:
+   Parsed condominiumList: [
+  { id: 24, name: '131', apartment: '' },
+  { id: 26, name: '133', apartment: '' },
+  { id: 34, name: '146', apartment: '' },
+  { id: 43, name: '160', apartment: '' },
+  { id: 79, name: '238', apartment: '' },
+  { id: 80, name: '239', apartment: '' },
+  { id: 83, name: '242', apartment: '' },
+  { id: 84, name: '247', apartment: '' },
+  { id: 85, name: '248', apartment: '' },
+  { id: 86, name: '249', apartment: '' },
+  { id: 88, name: '253', apartment: '' },
+  { id: 89, name: '254', apartment: '' },
+  { id: 91, name: '258', apartment: '' },
+  { id: 92, name: '259', apartment: '' },
+  { id: 94, name: '268', apartment: '' },
+  { id: 95, name: '270', apartment: '' },
+  { id: 109, name: '310', apartment: '' },
+  { id: 128, name: '378', apartment: '' }
+]
+   condominiumList length: 18
+✅ Unread count: 0
+🔍 /api/users/:id endpoint called, id= 496
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '262' ]
+✅ Unread count: 0
+🔍 /api/users endpoint called
+   admin-permissions header: {"scope":"full","allowed_condominiums":null}
+   Parsed permissions: { scope: 'full', allowed_condominiums: null }
+   Admin has full access - showing all users
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '262' ]
+🔍 DEBUG - User 501460888:
+   Raw condominium_details: 24:131:,26:133:,34:146:,43:160:,79:238:,80:239:,83:242:,84:247:,85:248:,86:249:,88:253:,89:254:,91:258:,92:259:,94:268:,95:270:,109:310:,128:378:
+   Parsed condominiumList: [
+  { id: 24, name: '131', apartment: '' },
+  { id: 26, name: '133', apartment: '' },
+  { id: 34, name: '146', apartment: '' },
+  { id: 43, name: '160', apartment: '' },
+  { id: 79, name: '238', apartment: '' },
+  { id: 80, name: '239', apartment: '' },
+  { id: 83, name: '242', apartment: '' },
+  { id: 84, name: '247', apartment: '' },
+  { id: 85, name: '248', apartment: '' },
+  { id: 86, name: '249', apartment: '' },
+  { id: 88, name: '253', apartment: '' },
+  { id: 89, name: '254', apartment: '' },
+  { id: 91, name: '258', apartment: '' },
+  { id: 92, name: '259', apartment: '' },
+  { id: 94, name: '268', apartment: '' },
+  { id: 95, name: '270', apartment: '' },
+  { id: 109, name: '310', apartment: '' },
+  { id: 128, name: '378', apartment: '' }
+]
+   condominiumList length: 18
+✅ Unread count: 0
+🔍 /api/users/:id endpoint called, id= 877
+🔍 /api/users endpoint called
+   admin-permissions header: {"scope":"full","allowed_condominiums":null}
+   Parsed permissions: { scope: 'full', allowed_condominiums: null }
+   Admin has full access - showing all users
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '262' ]
+🔍 DEBUG - User 501460888:
+   Raw condominium_details: 24:131:,26:133:,34:146:,43:160:,79:238:,80:239:,83:242:,84:247:,85:248:,86:249:,88:253:,89:254:,91:258:,92:259:,94:268:,95:270:,109:310:,128:378:
+   Parsed condominiumList: [
+  { id: 24, name: '131', apartment: '' },
+  { id: 26, name: '133', apartment: '' },
+  { id: 34, name: '146', apartment: '' },
+  { id: 43, name: '160', apartment: '' },
+  { id: 79, name: '238', apartment: '' },
+  { id: 80, name: '239', apartment: '' },
+  { id: 83, name: '242', apartment: '' },
+  { id: 84, name: '247', apartment: '' },
+  { id: 85, name: '248', apartment: '' },
+  { id: 86, name: '249', apartment: '' },
+  { id: 88, name: '253', apartment: '' },
+  { id: 89, name: '254', apartment: '' },
+  { id: 91, name: '258', apartment: '' },
+  { id: 92, name: '259', apartment: '' },
+  { id: 94, name: '268', apartment: '' },
+  { id: 95, name: '270', apartment: '' },
+  { id: 109, name: '310', apartment: '' },
+  { id: 128, name: '378', apartment: '' }
+]
+   condominiumList length: 18
+✅ Unread count: 0
+🔍 /api/users/:id endpoint called, id= 1558
+🔍 /api/users endpoint called
+   admin-permissions header: {"scope":"full","allowed_condominiums":null}
+   Parsed permissions: { scope: 'full', allowed_condominiums: null }
+   Admin has full access - showing all users
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '262' ]
+🔍 DEBUG - User 501460888:
+   Raw condominium_details: 24:131:,26:133:,34:146:,43:160:,79:238:,80:239:,83:242:,84:247:,85:248:,86:249:,88:253:,89:254:,91:258:,92:259:,94:268:,95:270:,109:310:,128:378:
+   Parsed condominiumList: [
+  { id: 24, name: '131', apartment: '' },
+  { id: 26, name: '133', apartment: '' },
+  { id: 34, name: '146', apartment: '' },
+  { id: 43, name: '160', apartment: '' },
+  { id: 79, name: '238', apartment: '' },
+  { id: 80, name: '239', apartment: '' },
+  { id: 83, name: '242', apartment: '' },
+  { id: 84, name: '247', apartment: '' },
+  { id: 85, name: '248', apartment: '' },
+  { id: 86, name: '249', apartment: '' },
+  { id: 88, name: '253', apartment: '' },
+  { id: 89, name: '254', apartment: '' },
+  { id: 91, name: '258', apartment: '' },
+  { id: 92, name: '259', apartment: '' },
+  { id: 94, name: '268', apartment: '' },
+  { id: 95, name: '270', apartment: '' },
+  { id: 109, name: '310', apartment: '' },
+  { id: 128, name: '378', apartment: '' }
+]
+   condominiumList length: 18
+✅ Unread count: 0
+🔍 /api/users/:id endpoint called, id= 767
+🔍 /api/users endpoint called
+   admin-permissions header: {"scope":"full","allowed_condominiums":null}
+   Parsed permissions: { scope: 'full', allowed_condominiums: null }
+   Admin has full access - showing all users
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '262' ]
+🔍 DEBUG - User 501460888:
+   Raw condominium_details: 24:131:,26:133:,34:146:,43:160:,79:238:,80:239:,83:242:,84:247:,85:248:,86:249:,88:253:,89:254:,91:258:,92:259:,94:268:,95:270:,109:310:,128:378:
+   Parsed condominiumList: [
+  { id: 24, name: '131', apartment: '' },
+  { id: 26, name: '133', apartment: '' },
+  { id: 34, name: '146', apartment: '' },
+  { id: 43, name: '160', apartment: '' },
+  { id: 79, name: '238', apartment: '' },
+  { id: 80, name: '239', apartment: '' },
+  { id: 83, name: '242', apartment: '' },
+  { id: 84, name: '247', apartment: '' },
+  { id: 85, name: '248', apartment: '' },
+  { id: 86, name: '249', apartment: '' },
+  { id: 88, name: '253', apartment: '' },
+  { id: 89, name: '254', apartment: '' },
+  { id: 91, name: '258', apartment: '' },
+  { id: 92, name: '259', apartment: '' },
+  { id: 94, name: '268', apartment: '' },
+  { id: 95, name: '270', apartment: '' },
+  { id: 109, name: '310', apartment: '' },
+  { id: 128, name: '378', apartment: '' }
+]
+   condominiumList length: 18
+✅ Unread count: 0
+🔍 /api/users/:id endpoint called, id= 167
+🔍 /api/users endpoint called
+   admin-permissions header: {"scope":"full","allowed_condominiums":null}
+   Parsed permissions: { scope: 'full', allowed_condominiums: null }
+   Admin has full access - showing all users
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '262' ]
+🔍 DEBUG - User 501460888:
+   Raw condominium_details: 24:131:,26:133:,34:146:,43:160:,79:238:,80:239:,83:242:,84:247:,85:248:,86:249:,88:253:,89:254:,91:258:,92:259:,94:268:,95:270:,109:310:,128:378:
+   Parsed condominiumList: [
+  { id: 24, name: '131', apartment: '' },
+  { id: 26, name: '133', apartment: '' },
+  { id: 34, name: '146', apartment: '' },
+  { id: 43, name: '160', apartment: '' },
+  { id: 79, name: '238', apartment: '' },
+  { id: 80, name: '239', apartment: '' },
+  { id: 83, name: '242', apartment: '' },
+  { id: 84, name: '247', apartment: '' },
+  { id: 85, name: '248', apartment: '' },
+  { id: 86, name: '249', apartment: '' },
+  { id: 88, name: '253', apartment: '' },
+  { id: 89, name: '254', apartment: '' },
+  { id: 91, name: '258', apartment: '' },
+  { id: 92, name: '259', apartment: '' },
+  { id: 94, name: '268', apartment: '' },
+  { id: 95, name: '270', apartment: '' },
+  { id: 109, name: '310', apartment: '' },
+  { id: 128, name: '378', apartment: '' }
+]
+   condominiumList length: 18
+✅ Unread count: 0
+🔍 /api/users/:id endpoint called, id= 57
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '262' ]
+✅ Unread count: 0
+🔍 /api/users endpoint called
+   admin-permissions header: {"scope":"full","allowed_condominiums":null}
+   Parsed permissions: { scope: 'full', allowed_condominiums: null }
+   Admin has full access - showing all users
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '262' ]
+🔍 DEBUG - User 501460888:
+   Raw condominium_details: 24:131:,26:133:,34:146:,43:160:,79:238:,80:239:,83:242:,84:247:,85:248:,86:249:,88:253:,89:254:,91:258:,92:259:,94:268:,95:270:,109:310:,128:378:
+   Parsed condominiumList: [
+  { id: 24, name: '131', apartment: '' },
+  { id: 26, name: '133', apartment: '' },
+  { id: 34, name: '146', apartment: '' },
+  { id: 43, name: '160', apartment: '' },
+  { id: 79, name: '238', apartment: '' },
+  { id: 80, name: '239', apartment: '' },
+  { id: 83, name: '242', apartment: '' },
+  { id: 84, name: '247', apartment: '' },
+  { id: 85, name: '248', apartment: '' },
+  { id: 86, name: '249', apartment: '' },
+  { id: 88, name: '253', apartment: '' },
+  { id: 89, name: '254', apartment: '' },
+  { id: 91, name: '258', apartment: '' },
+  { id: 92, name: '259', apartment: '' },
+  { id: 94, name: '268', apartment: '' },
+  { id: 95, name: '270', apartment: '' },
+  { id: 109, name: '310', apartment: '' },
+  { id: 128, name: '378', apartment: '' }
+]
+   condominiumList length: 18
+✅ Unread count: 0
+🔍 /api/users/:id endpoint called, id= 229
+🔍 /api/users endpoint called
+   admin-permissions header: {"scope":"full","allowed_condominiums":null}
+   Parsed permissions: { scope: 'full', allowed_condominiums: null }
+   Admin has full access - showing all users
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '262' ]
+🔍 DEBUG - User 501460888:
+   Raw condominium_details: 24:131:,26:133:,34:146:,43:160:,79:238:,80:239:,83:242:,84:247:,85:248:,86:249:,88:253:,89:254:,91:258:,92:259:,94:268:,95:270:,109:310:,128:378:
+   Parsed condominiumList: [
+  { id: 24, name: '131', apartment: '' },
+  { id: 26, name: '133', apartment: '' },
+  { id: 34, name: '146', apartment: '' },
+  { id: 43, name: '160', apartment: '' },
+  { id: 79, name: '238', apartment: '' },
+  { id: 80, name: '239', apartment: '' },
+  { id: 83, name: '242', apartment: '' },
+  { id: 84, name: '247', apartment: '' },
+  { id: 85, name: '248', apartment: '' },
+  { id: 86, name: '249', apartment: '' },
+  { id: 88, name: '253', apartment: '' },
+  { id: 89, name: '254', apartment: '' },
+  { id: 91, name: '258', apartment: '' },
+  { id: 92, name: '259', apartment: '' },
+  { id: 94, name: '268', apartment: '' },
+  { id: 95, name: '270', apartment: '' },
+  { id: 109, name: '310', apartment: '' },
+  { id: 128, name: '378', apartment: '' }
+]
+   condominiumList length: 18
+✅ Unread count: 0
+🔍 /api/users/:id endpoint called, id= 247
+🔍 /api/users endpoint called
+   admin-permissions header: {"scope":"full","allowed_condominiums":null}
+   Parsed permissions: { scope: 'full', allowed_condominiums: null }
+   Admin has full access - showing all users
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '262' ]
+🔍 DEBUG - User 501460888:
+   Raw condominium_details: 24:131:,26:133:,34:146:,43:160:,79:238:,80:239:,83:242:,84:247:,85:248:,86:249:,88:253:,89:254:,91:258:,92:259:,94:268:,95:270:,109:310:,128:378:
+   Parsed condominiumList: [
+  { id: 24, name: '131', apartment: '' },
+  { id: 26, name: '133', apartment: '' },
+  { id: 34, name: '146', apartment: '' },
+  { id: 43, name: '160', apartment: '' },
+  { id: 79, name: '238', apartment: '' },
+  { id: 80, name: '239', apartment: '' },
+  { id: 83, name: '242', apartment: '' },
+  { id: 84, name: '247', apartment: '' },
+  { id: 85, name: '248', apartment: '' },
+  { id: 86, name: '249', apartment: '' },
+  { id: 88, name: '253', apartment: '' },
+  { id: 89, name: '254', apartment: '' },
+  { id: 91, name: '258', apartment: '' },
+  { id: 92, name: '259', apartment: '' },
+  { id: 94, name: '268', apartment: '' },
+  { id: 95, name: '270', apartment: '' },
+  { id: 109, name: '310', apartment: '' },
+  { id: 128, name: '378', apartment: '' }
+]
+   condominiumList length: 18
+✅ Unread count: 0
+🔍 /api/users/:id endpoint called, id= 692
+🔍 /api/users endpoint called
+   admin-permissions header: {"scope":"full","allowed_condominiums":null}
+   Parsed permissions: { scope: 'full', allowed_condominiums: null }
+   Admin has full access - showing all users
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '262' ]
+🔍 DEBUG - User 501460888:
+   Raw condominium_details: 24:131:,26:133:,34:146:,43:160:,79:238:,80:239:,83:242:,84:247:,85:248:,86:249:,88:253:,89:254:,91:258:,92:259:,94:268:,95:270:,109:310:,128:378:
+   Parsed condominiumList: [
+  { id: 24, name: '131', apartment: '' },
+  { id: 26, name: '133', apartment: '' },
+  { id: 34, name: '146', apartment: '' },
+  { id: 43, name: '160', apartment: '' },
+  { id: 79, name: '238', apartment: '' },
+  { id: 80, name: '239', apartment: '' },
+  { id: 83, name: '242', apartment: '' },
+  { id: 84, name: '247', apartment: '' },
+  { id: 85, name: '248', apartment: '' },
+  { id: 86, name: '249', apartment: '' },
+  { id: 88, name: '253', apartment: '' },
+  { id: 89, name: '254', apartment: '' },
+  { id: 91, name: '258', apartment: '' },
+  { id: 92, name: '259', apartment: '' },
+  { id: 94, name: '268', apartment: '' },
+  { id: 95, name: '270', apartment: '' },
+  { id: 109, name: '310', apartment: '' },
+  { id: 128, name: '378', apartment: '' }
+]
+   condominiumList length: 18
+✅ Unread count: 0
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '262' ]
+✅ Unread count: 0
+🔍 /api/users/:id endpoint called, id= 712
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '262' ]
+✅ Unread count: 0
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '262' ]
+✅ Unread count: 0
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '262' ]
+✅ Unread count: 0
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '262' ]
+✅ Unread count: 0
+🔍 /api/users endpoint called
+   admin-permissions header: {"scope":"full","allowed_condominiums":null}
+   Parsed permissions: { scope: 'full', allowed_condominiums: null }
+   Admin has full access - showing all users
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '262' ]
+🔍 DEBUG - User 501460888:
+   Raw condominium_details: 24:131:,26:133:,34:146:,43:160:,79:238:,80:239:,83:242:,84:247:,85:248:,86:249:,88:253:,89:254:,91:258:,92:259:,94:268:,95:270:,109:310:,128:378:
+   Parsed condominiumList: [
+  { id: 24, name: '131', apartment: '' },
+  { id: 26, name: '133', apartment: '' },
+  { id: 34, name: '146', apartment: '' },
+  { id: 43, name: '160', apartment: '' },
+  { id: 79, name: '238', apartment: '' },
+  { id: 80, name: '239', apartment: '' },
+  { id: 83, name: '242', apartment: '' },
+  { id: 84, name: '247', apartment: '' },
+  { id: 85, name: '248', apartment: '' },
+  { id: 86, name: '249', apartment: '' },
+  { id: 88, name: '253', apartment: '' },
+  { id: 89, name: '254', apartment: '' },
+  { id: 91, name: '258', apartment: '' },
+  { id: 92, name: '259', apartment: '' },
+  { id: 94, name: '268', apartment: '' },
+  { id: 95, name: '270', apartment: '' },
+  { id: 109, name: '310', apartment: '' },
+  { id: 128, name: '378', apartment: '' }
+]
+   condominiumList length: 18
+✅ Unread count: 0
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '262' ]
+✅ Unread count: 0
+🔍 /api/users/:id endpoint called, id= 687
+🔍 /api/users endpoint called
+   admin-permissions header: {"scope":"full","allowed_condominiums":null}
+   Parsed permissions: { scope: 'full', allowed_condominiums: null }
+   Admin has full access - showing all users
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '262' ]
+🔍 DEBUG - User 501460888:
+   Raw condominium_details: 24:131:,26:133:,34:146:,43:160:,79:238:,80:239:,83:242:,84:247:,85:248:,86:249:,88:253:,89:254:,91:258:,92:259:,94:268:,95:270:,109:310:,128:378:
+   Parsed condominiumList: [
+  { id: 24, name: '131', apartment: '' },
+  { id: 26, name: '133', apartment: '' },
+  { id: 34, name: '146', apartment: '' },
+  { id: 43, name: '160', apartment: '' },
+  { id: 79, name: '238', apartment: '' },
+  { id: 80, name: '239', apartment: '' },
+  { id: 83, name: '242', apartment: '' },
+  { id: 84, name: '247', apartment: '' },
+  { id: 85, name: '248', apartment: '' },
+  { id: 86, name: '249', apartment: '' },
+  { id: 88, name: '253', apartment: '' },
+  { id: 89, name: '254', apartment: '' },
+  { id: 91, name: '258', apartment: '' },
+  { id: 92, name: '259', apartment: '' },
+  { id: 94, name: '268', apartment: '' },
+  { id: 95, name: '270', apartment: '' },
+  { id: 109, name: '310', apartment: '' },
+  { id: 128, name: '378', apartment: '' }
+]
+   condominiumList length: 18
+✅ Unread count: 0
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '262' ]
+✅ Unread count: 0
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '262' ]
+✅ Unread count: 0

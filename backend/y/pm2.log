@@ -33,3 +33,54 @@
 2025-11-04T17:12:11: PM2 log: Runtime Binary       : C:\Program Files\nodejs\node.exe
 2025-11-04T17:12:11: PM2 log: ===============================================================================
 2025-11-04T17:12:11: PM2 log: PM2 successfully stopped
+2025-11-04T17:12:12: PM2 log: ===============================================================================
+2025-11-04T17:12:12: PM2 log: --- New PM2 Daemon started ----------------------------------------------------
+2025-11-04T17:12:12: PM2 log: Time                 : Tue Nov 04 2025 17:12:12 GMT+0000 (Hora padrão da Europa Ocidental)
+2025-11-04T17:12:12: PM2 log: PM2 version          : 6.0.13
+2025-11-04T17:12:12: PM2 log: Node.js version      : 22.18.0
+2025-11-04T17:12:12: PM2 log: Current arch         : x64
+2025-11-04T17:12:12: PM2 log: PM2 home             : C:\DomusGest\backend\y
+2025-11-04T17:12:12: PM2 log: PM2 PID file         : C:\DomusGest\backend\y\pm2.pid
+2025-11-04T17:12:12: PM2 log: RPC socket file      : \\.\pipe\rpc.sock
+2025-11-04T17:12:12: PM2 log: BUS socket file      : \\.\pipe\pub.sock
+2025-11-04T17:12:12: PM2 log: Application log path : C:\DomusGest\backend\y\logs
+2025-11-04T17:12:12: PM2 log: Worker Interval      : 30000
+2025-11-04T17:12:12: PM2 log: Process dump file    : C:\DomusGest\backend\y\dump.pm2
+2025-11-04T17:12:12: PM2 log: Concurrent actions   : 2
+2025-11-04T17:12:12: PM2 log: SIGTERM timeout      : 1600
+2025-11-04T17:12:12: PM2 log: Runtime Binary       : C:\Program Files\nodejs\node.exe
+2025-11-04T17:12:12: PM2 log: ===============================================================================
+2025-11-04T17:12:12: PM2 log: App [domusgest-backend:0] starting in -fork mode-
+2025-11-04T17:12:12: PM2 log: App [domusgest-backend:0] online
+2025-11-04T17:35:15: PM2 log: Stopping app:domusgest-backend id:0
+2025-11-04T17:35:15: PM2 log: App [domusgest-backend:0] exited with code [1] via signal [SIGINT]
+2025-11-04T17:35:15: PM2 log: pid=13272 msg=process killed
+2025-11-04T17:35:15: PM2 log: App [domusgest-backend:0] starting in -fork mode-
+2025-11-04T17:35:15: PM2 log: App [domusgest-backend:0] online
+2025-11-04T17:39:16: PM2 log: App [domusgest-backend:0] exited with code [1] via signal [SIGINT]
+2025-11-04T17:39:16: PM2 log: App [domusgest-backend:0] starting in -fork mode-
+2025-11-04T17:39:16: PM2 log: App [domusgest-backend:0] online
+2025-11-04T17:44:37: PM2 log: Stopping app:domusgest-backend id:0
+2025-11-04T17:44:37: PM2 log: App [domusgest-backend:0] exited with code [1] via signal [SIGINT]
+2025-11-04T17:44:37: PM2 log: pid=2852 msg=process killed
+2025-11-04T17:44:37: PM2 log: App [domusgest-backend:0] starting in -fork mode-
+2025-11-04T17:44:37: PM2 log: App [domusgest-backend:0] online
+2025-11-04T17:44:44: PM2 log: Stopping app:domusgest-backend id:0
+2025-11-04T17:44:44: PM2 log: App [domusgest-backend:0] exited with code [1] via signal [SIGINT]
+2025-11-04T17:44:44: PM2 log: pid=2796 msg=process killed
+2025-11-04T17:44:44: PM2 log: App [domusgest-backend:0] starting in -fork mode-
+2025-11-04T17:44:44: PM2 log: App [domusgest-backend:0] online
+2025-11-04T17:45:09: PM2 log: App [domusgest-backend:0] exited with code [1] via signal [SIGINT]
+2025-11-04T17:45:09: PM2 log: App [domusgest-backend:0] starting in -fork mode-
+2025-11-04T17:45:09: PM2 log: App [domusgest-backend:0] online
+2025-11-04T17:45:24: PM2 log: App [domusgest-backend:0] exited with code [1] via signal [SIGINT]
+2025-11-04T17:45:24: PM2 log: App [domusgest-backend:0] starting in -fork mode-
+2025-11-04T17:45:24: PM2 log: App [domusgest-backend:0] online
+2025-11-04T17:45:37: PM2 log: Stopping app:domusgest-backend id:0
+2025-11-04T17:45:37: PM2 log: App [domusgest-backend:0] exited with code [1] via signal [SIGINT]
+2025-11-04T17:45:37: PM2 log: pid=6364 msg=process killed
+2025-11-04T17:45:37: PM2 log: App [domusgest-backend:0] starting in -fork mode-
+2025-11-04T17:45:37: PM2 log: App [domusgest-backend:0] online
+2025-11-04T17:46:04: PM2 log: App [domusgest-backend:0] exited with code [1] via signal [SIGINT]
+2025-11-04T17:46:04: PM2 log: App [domusgest-backend:0] starting in -fork mode-
+2025-11-04T17:46:04: PM2 log: App [domusgest-backend:0] online
