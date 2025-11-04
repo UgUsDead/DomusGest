@@ -25,3 +25,470 @@
 ✅ Default admin user created (admin/admin!!)
 ✅ Default maintenance user created (Manut2/Manut2!!)
 ✅ Default maintenance user created (Manut3/Manut3!!)
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '257' ]
+🔍 /api/users endpoint called
+   admin-permissions header: {"scope":"full","allowed_condominiums":null}
+   Parsed permissions: { scope: 'full', allowed_condominiums: null }
+   Admin has full access - showing all users
+✅ Unread count: 0
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '257' ]
+🔍 DEBUG - User 501460888:
+   Raw condominium_details: 24:131:,26:133:,34:146:,43:160:,79:238:,80:239:,83:242:,84:247:,85:248:,86:249:,88:253:,89:254:,91:258:,92:259:,94:268:,95:270:,109:310:,128:378:
+   Parsed condominiumList: [
+  { id: 24, name: '131', apartment: '' },
+  { id: 26, name: '133', apartment: '' },
+  { id: 34, name: '146', apartment: '' },
+  { id: 43, name: '160', apartment: '' },
+  { id: 79, name: '238', apartment: '' },
+  { id: 80, name: '239', apartment: '' },
+  { id: 83, name: '242', apartment: '' },
+  { id: 84, name: '247', apartment: '' },
+  { id: 85, name: '248', apartment: '' },
+  { id: 86, name: '249', apartment: '' },
+  { id: 88, name: '253', apartment: '' },
+  { id: 89, name: '254', apartment: '' },
+  { id: 91, name: '258', apartment: '' },
+  { id: 92, name: '259', apartment: '' },
+  { id: 94, name: '268', apartment: '' },
+  { id: 95, name: '270', apartment: '' },
+  { id: 109, name: '310', apartment: '' },
+  { id: 128, name: '378', apartment: '' }
+]
+   condominiumList length: 18
+✅ Unread count: 0
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '257' ]
+✅ Unread count: 0
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '257' ]
+✅ Unread count: 0
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '257' ]
+✅ Unread count: 0
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '257' ]
+✅ Unread count: 0
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '257' ]
+✅ Unread count: 0
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '257' ]
+✅ Unread count: 0
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '257' ]
+✅ Unread count: 0
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '257' ]
+✅ Unread count: 0
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '257' ]
+✅ Unread count: 0
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '257' ]
+✅ Unread count: 0
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '257' ]
+✅ Unread count: 0
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '257' ]
+✅ Unread count: 0
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '257' ]
+✅ Unread count: 0
+🔍 /api/users endpoint called
+   admin-permissions header: {"scope":"full","allowed_condominiums":null}
+   Parsed permissions: { scope: 'full', allowed_condominiums: null }
+   Admin has full access - showing all users
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '257' ]
+🔍 DEBUG - User 501460888:
+   Raw condominium_details: 24:131:,26:133:,34:146:,43:160:,79:238:,80:239:,83:242:,84:247:,85:248:,86:249:,88:253:,89:254:,91:258:,92:259:,94:268:,95:270:,109:310:,128:378:
+   Parsed condominiumList: [
+  { id: 24, name: '131', apartment: '' },
+  { id: 26, name: '133', apartment: '' },
+  { id: 34, name: '146', apartment: '' },
+  { id: 43, name: '160', apartment: '' },
+  { id: 79, name: '238', apartment: '' },
+  { id: 80, name: '239', apartment: '' },
+  { id: 83, name: '242', apartment: '' },
+  { id: 84, name: '247', apartment: '' },
+  { id: 85, name: '248', apartment: '' },
+  { id: 86, name: '249', apartment: '' },
+  { id: 88, name: '253', apartment: '' },
+  { id: 89, name: '254', apartment: '' },
+  { id: 91, name: '258', apartment: '' },
+  { id: 92, name: '259', apartment: '' },
+  { id: 94, name: '268', apartment: '' },
+  { id: 95, name: '270', apartment: '' },
+  { id: 109, name: '310', apartment: '' },
+  { id: 128, name: '378', apartment: '' }
+]
+   condominiumList length: 18
+✅ Unread count: 0
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '257' ]
+✅ Unread count: 0
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '257' ]
+✅ Unread count: 0
+[DEBUG] GET /api/maintenance/ocorrencias/pending - maintenance-id raw header: 495
+[DEBUG] GET /api/maintenance/ocorrencias/pending - parsed maintenance-id: 495
+[DEBUG] Filtering pending for maintenance id, params: [ 495 ]
+[DEBUG] Pending status filter includes NULL/empty statuses to capture incomplete records
+[DEBUG] Final SQL for pending: 
+    SELECT o.*, c.name as condominium_name, c.nipc as condominium_nipc, m.nome as maintenance_name,
+           a.username as created_by_admin_username, u.nome as reporter_name, u.nif as reporter_nif
+    FROM ocorrencias o
+    LEFT JOIN condominiums c ON o.condominium_id = c.id
+    LEFT JOIN maintenance_users m ON o.assigned_to_maintenance = m.id
+    LEFT JOIN admins a ON o.created_by_admin = a.id
+    LEFT JOIN users u ON o.reporter_user_id = u.id
+    WHERE (o.status IN ('pending', 'in_progress') OR o.status IS NULL OR o.status = '')
+   AND (o.assigned_to_maintenance = ? OR o.assigned_to_maintenance IS NULL) ORDER BY o.priority DESC, o.created_at ASC
+[DEBUG] SQL params for pending: [ 495 ]
+[DEBUG] GET /api/maintenance/ocorrencias/completed - maintenance-id raw header: 495
+[DEBUG] GET /api/maintenance/ocorrencias/completed - parsed maintenance-id: 495
+[DEBUG] Filtering completed for maintenance id, params: [ 495 ]
+[DEBUG] Final SQL for completed: 
+    SELECT o.*, c.name as condominium_name, c.nipc as condominium_nipc, m.nome as maintenance_name,
+           a.username as created_by_admin_username, u.nome as reporter_name, u.nif as reporter_nif
+    FROM ocorrencias o
+    LEFT JOIN condominiums c ON o.condominium_id = c.id
+    LEFT JOIN maintenance_users m ON o.assigned_to_maintenance = m.id
+    LEFT JOIN admins a ON o.created_by_admin = a.id
+    LEFT JOIN users u ON o.reporter_user_id = u.id
+    WHERE o.status IN ('completed', 'resolved')
+   AND (o.assigned_to_maintenance = ? OR o.assigned_to_maintenance IS NULL) ORDER BY o.completed_at DESC
+[DEBUG] SQL params for completed: [ 495 ]
+[DEBUG] Pending ocorrencias returned count: 0
+[DEBUG] Completed ocorrencias returned count: 0
+[DEBUG] GET /api/maintenance/ocorrencias/pending - maintenance-id raw header: 495
+[DEBUG] GET /api/maintenance/ocorrencias/pending - parsed maintenance-id: 495
+[DEBUG] Filtering pending for maintenance id, params: [ 495 ]
+[DEBUG] Pending status filter includes NULL/empty statuses to capture incomplete records
+[DEBUG] Final SQL for pending: 
+    SELECT o.*, c.name as condominium_name, c.nipc as condominium_nipc, m.nome as maintenance_name,
+           a.username as created_by_admin_username, u.nome as reporter_name, u.nif as reporter_nif
+    FROM ocorrencias o
+    LEFT JOIN condominiums c ON o.condominium_id = c.id
+    LEFT JOIN maintenance_users m ON o.assigned_to_maintenance = m.id
+    LEFT JOIN admins a ON o.created_by_admin = a.id
+    LEFT JOIN users u ON o.reporter_user_id = u.id
+    WHERE (o.status IN ('pending', 'in_progress') OR o.status IS NULL OR o.status = '')
+   AND (o.assigned_to_maintenance = ? OR o.assigned_to_maintenance IS NULL) ORDER BY o.priority DESC, o.created_at ASC
+[DEBUG] SQL params for pending: [ 495 ]
+[DEBUG] GET /api/maintenance/ocorrencias/completed - maintenance-id raw header: 495
+[DEBUG] GET /api/maintenance/ocorrencias/completed - parsed maintenance-id: 495
+[DEBUG] Filtering completed for maintenance id, params: [ 495 ]
+[DEBUG] Final SQL for completed: 
+    SELECT o.*, c.name as condominium_name, c.nipc as condominium_nipc, m.nome as maintenance_name,
+           a.username as created_by_admin_username, u.nome as reporter_name, u.nif as reporter_nif
+    FROM ocorrencias o
+    LEFT JOIN condominiums c ON o.condominium_id = c.id
+    LEFT JOIN maintenance_users m ON o.assigned_to_maintenance = m.id
+    LEFT JOIN admins a ON o.created_by_admin = a.id
+    LEFT JOIN users u ON o.reporter_user_id = u.id
+    WHERE o.status IN ('completed', 'resolved')
+   AND (o.assigned_to_maintenance = ? OR o.assigned_to_maintenance IS NULL) ORDER BY o.completed_at DESC
+[DEBUG] SQL params for completed: [ 495 ]
+[DEBUG] Pending ocorrencias returned count: 0
+[DEBUG] Completed ocorrencias returned count: 0
+🔍 /api/condominiums endpoint called
+   admin-permissions header: {"scope":"full","allowed_condominiums":null}
+   Parsed permissions: { scope: 'full', allowed_condominiums: null }
+   Admin has full access - showing all condominiums
+   Final SQL: SELECT * FROM condominiums ORDER BY name
+   Params: []
+[DEBUG] GET /api/maintenance/ocorrencias/pending - maintenance-id raw header: 495
+[DEBUG] GET /api/maintenance/ocorrencias/pending - parsed maintenance-id: 495
+[DEBUG] Filtering pending for maintenance id, params: [ 495 ]
+[DEBUG] Pending status filter includes NULL/empty statuses to capture incomplete records
+[DEBUG] Final SQL for pending: 
+    SELECT o.*, c.name as condominium_name, c.nipc as condominium_nipc, m.nome as maintenance_name,
+           a.username as created_by_admin_username, u.nome as reporter_name, u.nif as reporter_nif
+    FROM ocorrencias o
+    LEFT JOIN condominiums c ON o.condominium_id = c.id
+    LEFT JOIN maintenance_users m ON o.assigned_to_maintenance = m.id
+    LEFT JOIN admins a ON o.created_by_admin = a.id
+    LEFT JOIN users u ON o.reporter_user_id = u.id
+    WHERE (o.status IN ('pending', 'in_progress') OR o.status IS NULL OR o.status = '')
+   AND (o.assigned_to_maintenance = ? OR o.assigned_to_maintenance IS NULL) ORDER BY o.priority DESC, o.created_at ASC
+[DEBUG] SQL params for pending: [ 495 ]
+[DEBUG] GET /api/maintenance/ocorrencias/completed - maintenance-id raw header: 495
+[DEBUG] GET /api/maintenance/ocorrencias/completed - parsed maintenance-id: 495
+[DEBUG] Filtering completed for maintenance id, params: [ 495 ]
+[DEBUG] Final SQL for completed: 
+    SELECT o.*, c.name as condominium_name, c.nipc as condominium_nipc, m.nome as maintenance_name,
+           a.username as created_by_admin_username, u.nome as reporter_name, u.nif as reporter_nif
+    FROM ocorrencias o
+    LEFT JOIN condominiums c ON o.condominium_id = c.id
+    LEFT JOIN maintenance_users m ON o.assigned_to_maintenance = m.id
+    LEFT JOIN admins a ON o.created_by_admin = a.id
+    LEFT JOIN users u ON o.reporter_user_id = u.id
+    WHERE o.status IN ('completed', 'resolved')
+   AND (o.assigned_to_maintenance = ? OR o.assigned_to_maintenance IS NULL) ORDER BY o.completed_at DESC
+[DEBUG] SQL params for completed: [ 495 ]
+[DEBUG] Pending ocorrencias returned count: 0
+[DEBUG] Completed ocorrencias returned count: 0
+🔍 /api/condominiums endpoint called
+   admin-permissions header: {"scope":"full","allowed_condominiums":null}
+   Parsed permissions: { scope: 'full', allowed_condominiums: null }
+   Admin has full access - showing all condominiums
+   Final SQL: SELECT * FROM condominiums ORDER BY name
+   Params: []
+🔍 /api/condominiums endpoint called
+   admin-permissions header: {"scope":"full","allowed_condominiums":null}
+   Parsed permissions: { scope: 'full', allowed_condominiums: null }
+   Admin has full access - showing all condominiums
+   Final SQL: SELECT * FROM condominiums ORDER BY name
+   Params: []
+🔍 /api/condominiums endpoint called
+   admin-permissions header: {"scope":"full","allowed_condominiums":null}
+   Parsed permissions: { scope: 'full', allowed_condominiums: null }
+   Admin has full access - showing all condominiums
+   Final SQL: SELECT * FROM condominiums ORDER BY name
+   Params: []
+[DEBUG] Creating ocorrencia with assigned_to_maintenance (processed): 495
+🔗 Linking notification 6 to users in condominiums: [ 1 ]
+✅ Linked notification 6 to 9 user(s)
+🔍 /api/condominiums endpoint called
+   admin-permissions header: {"scope":"full","allowed_condominiums":null}
+   Parsed permissions: { scope: 'full', allowed_condominiums: null }
+   Admin has full access - showing all condominiums
+   Final SQL: SELECT * FROM condominiums ORDER BY name
+   Params: []
+[DEBUG] GET /api/maintenance/ocorrencias/pending - maintenance-id raw header: 495
+[DEBUG] GET /api/maintenance/ocorrencias/pending - parsed maintenance-id: 495
+[DEBUG] Filtering pending for maintenance id, params: [ 495 ]
+[DEBUG] Pending status filter includes NULL/empty statuses to capture incomplete records
+[DEBUG] Final SQL for pending: 
+    SELECT o.*, c.name as condominium_name, c.nipc as condominium_nipc, m.nome as maintenance_name,
+           a.username as created_by_admin_username, u.nome as reporter_name, u.nif as reporter_nif
+    FROM ocorrencias o
+    LEFT JOIN condominiums c ON o.condominium_id = c.id
+    LEFT JOIN maintenance_users m ON o.assigned_to_maintenance = m.id
+    LEFT JOIN admins a ON o.created_by_admin = a.id
+    LEFT JOIN users u ON o.reporter_user_id = u.id
+    WHERE (o.status IN ('pending', 'in_progress') OR o.status IS NULL OR o.status = '')
+   AND (o.assigned_to_maintenance = ? OR o.assigned_to_maintenance IS NULL) ORDER BY o.priority DESC, o.created_at ASC
+[DEBUG] SQL params for pending: [ 495 ]
+[DEBUG] GET /api/maintenance/ocorrencias/completed - maintenance-id raw header: 495
+[DEBUG] GET /api/maintenance/ocorrencias/completed - parsed maintenance-id: 495
+[DEBUG] Filtering completed for maintenance id, params: [ 495 ]
+[DEBUG] Final SQL for completed: 
+    SELECT o.*, c.name as condominium_name, c.nipc as condominium_nipc, m.nome as maintenance_name,
+           a.username as created_by_admin_username, u.nome as reporter_name, u.nif as reporter_nif
+    FROM ocorrencias o
+    LEFT JOIN condominiums c ON o.condominium_id = c.id
+    LEFT JOIN maintenance_users m ON o.assigned_to_maintenance = m.id
+    LEFT JOIN admins a ON o.created_by_admin = a.id
+    LEFT JOIN users u ON o.reporter_user_id = u.id
+    WHERE o.status IN ('completed', 'resolved')
+   AND (o.assigned_to_maintenance = ? OR o.assigned_to_maintenance IS NULL) ORDER BY o.completed_at DESC
+[DEBUG] SQL params for completed: [ 495 ]
+[DEBUG] Pending ocorrencias returned count: 1
+[DEBUG] Completed ocorrencias returned count: 0
+[DEBUG] Creating ocorrencia with assigned_to_maintenance (processed): 495
+🔗 Linking notification 7 to users in condominiums: [ 5 ]
+✅ Linked notification 7 to 8 user(s)
+🔍 /api/condominiums endpoint called
+   admin-permissions header: {"scope":"full","allowed_condominiums":null}
+   Parsed permissions: { scope: 'full', allowed_condominiums: null }
+   Admin has full access - showing all condominiums
+   Final SQL: SELECT * FROM condominiums ORDER BY name
+   Params: []
+[DEBUG] GET /api/maintenance/ocorrencias/pending - maintenance-id raw header: 495
+[DEBUG] GET /api/maintenance/ocorrencias/pending - parsed maintenance-id: 495
+[DEBUG] Filtering pending for maintenance id, params: [ 495 ]
+[DEBUG] Pending status filter includes NULL/empty statuses to capture incomplete records
+[DEBUG] Final SQL for pending: 
+    SELECT o.*, c.name as condominium_name, c.nipc as condominium_nipc, m.nome as maintenance_name,
+           a.username as created_by_admin_username, u.nome as reporter_name, u.nif as reporter_nif
+    FROM ocorrencias o
+    LEFT JOIN condominiums c ON o.condominium_id = c.id
+    LEFT JOIN maintenance_users m ON o.assigned_to_maintenance = m.id
+    LEFT JOIN admins a ON o.created_by_admin = a.id
+    LEFT JOIN users u ON o.reporter_user_id = u.id
+    WHERE (o.status IN ('pending', 'in_progress') OR o.status IS NULL OR o.status = '')
+   AND (o.assigned_to_maintenance = ? OR o.assigned_to_maintenance IS NULL) ORDER BY o.priority DESC, o.created_at ASC
+[DEBUG] SQL params for pending: [ 495 ]
+[DEBUG] Pending ocorrencias returned count: 2
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '257' ]
+✅ Unread count: 2
+[DEBUG] GET /api/maintenance/ocorrencias/pending - maintenance-id raw header: 495
+[DEBUG] GET /api/maintenance/ocorrencias/pending - parsed maintenance-id: 495
+[DEBUG] Filtering pending for maintenance id, params: [ 495 ]
+[DEBUG] Pending status filter includes NULL/empty statuses to capture incomplete records
+[DEBUG] Final SQL for pending: 
+    SELECT o.*, c.name as condominium_name, c.nipc as condominium_nipc, m.nome as maintenance_name,
+           a.username as created_by_admin_username, u.nome as reporter_name, u.nif as reporter_nif
+    FROM ocorrencias o
+    LEFT JOIN condominiums c ON o.condominium_id = c.id
+    LEFT JOIN maintenance_users m ON o.assigned_to_maintenance = m.id
+    LEFT JOIN admins a ON o.created_by_admin = a.id
+    LEFT JOIN users u ON o.reporter_user_id = u.id
+    WHERE (o.status IN ('pending', 'in_progress') OR o.status IS NULL OR o.status = '')
+   AND (o.assigned_to_maintenance = ? OR o.assigned_to_maintenance IS NULL) ORDER BY o.priority DESC, o.created_at ASC
+[DEBUG] SQL params for pending: [ 495 ]
+[DEBUG] GET /api/maintenance/ocorrencias/completed - maintenance-id raw header: 495
+[DEBUG] GET /api/maintenance/ocorrencias/completed - parsed maintenance-id: 495
+[DEBUG] Filtering completed for maintenance id, params: [ 495 ]
+[DEBUG] Final SQL for completed: 
+    SELECT o.*, c.name as condominium_name, c.nipc as condominium_nipc, m.nome as maintenance_name,
+           a.username as created_by_admin_username, u.nome as reporter_name, u.nif as reporter_nif
+    FROM ocorrencias o
+    LEFT JOIN condominiums c ON o.condominium_id = c.id
+    LEFT JOIN maintenance_users m ON o.assigned_to_maintenance = m.id
+    LEFT JOIN admins a ON o.created_by_admin = a.id
+    LEFT JOIN users u ON o.reporter_user_id = u.id
+    WHERE o.status IN ('completed', 'resolved')
+   AND (o.assigned_to_maintenance = ? OR o.assigned_to_maintenance IS NULL) ORDER BY o.completed_at DESC
+[DEBUG] SQL params for completed: [ 495 ]
+[DEBUG] Pending ocorrencias returned count: 2
+[DEBUG] Completed ocorrencias returned count: 0
+[DEBUG] GET /api/maintenance/ocorrencias/pending - maintenance-id raw header: 495
+[DEBUG] GET /api/maintenance/ocorrencias/pending - parsed maintenance-id: 495
+[DEBUG] Filtering pending for maintenance id, params: [ 495 ]
+[DEBUG] Pending status filter includes NULL/empty statuses to capture incomplete records
+[DEBUG] Final SQL for pending: 
+    SELECT o.*, c.name as condominium_name, c.nipc as condominium_nipc, m.nome as maintenance_name,
+           a.username as created_by_admin_username, u.nome as reporter_name, u.nif as reporter_nif
+    FROM ocorrencias o
+    LEFT JOIN condominiums c ON o.condominium_id = c.id
+    LEFT JOIN maintenance_users m ON o.assigned_to_maintenance = m.id
+    LEFT JOIN admins a ON o.created_by_admin = a.id
+    LEFT JOIN users u ON o.reporter_user_id = u.id
+    WHERE (o.status IN ('pending', 'in_progress') OR o.status IS NULL OR o.status = '')
+   AND (o.assigned_to_maintenance = ? OR o.assigned_to_maintenance IS NULL) ORDER BY o.priority DESC, o.created_at ASC
+[DEBUG] SQL params for pending: [ 495 ]
+[DEBUG] Pending ocorrencias returned count: 2
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '257' ]
+✅ Unread count: 2
+[DEBUG] GET /api/maintenance/ocorrencias/pending - maintenance-id raw header: 495
+[DEBUG] GET /api/maintenance/ocorrencias/pending - parsed maintenance-id: 495
+[DEBUG] Filtering pending for maintenance id, params: [ 495 ]
+[DEBUG] Pending status filter includes NULL/empty statuses to capture incomplete records
+[DEBUG] Final SQL for pending: 
+    SELECT o.*, c.name as condominium_name, c.nipc as condominium_nipc, m.nome as maintenance_name,
+           a.username as created_by_admin_username, u.nome as reporter_name, u.nif as reporter_nif
+    FROM ocorrencias o
+    LEFT JOIN condominiums c ON o.condominium_id = c.id
+    LEFT JOIN maintenance_users m ON o.assigned_to_maintenance = m.id
+    LEFT JOIN admins a ON o.created_by_admin = a.id
+    LEFT JOIN users u ON o.reporter_user_id = u.id
+    WHERE (o.status IN ('pending', 'in_progress') OR o.status IS NULL OR o.status = '')
+   AND (o.assigned_to_maintenance = ? OR o.assigned_to_maintenance IS NULL) ORDER BY o.priority DESC, o.created_at ASC
+[DEBUG] SQL params for pending: [ 495 ]
+[DEBUG] Pending ocorrencias returned count: 2
+🔍 Unread count SQL: 
+      SELECT COUNT(*) as count
+      FROM notifications n
+      JOIN admin_notifications an ON n.id = an.notification_id
+      WHERE an.admin_id = ? AND an.read_status = 0
+    
+🔍 Unread count params: [ '257' ]
+✅ Unread count: 2
