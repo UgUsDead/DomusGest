@@ -1,4 +1,4 @@
-<!doctype html><html lang="pt"><head><meta charset="utf-8"/><link rel="icon" type="image/x-icon" href="favicon.ico"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="theme-color" content="#000000"/><meta name="description" content="Web site created using create-react-app"/><link rel="icon" href="/logo192.png"/><link rel="manifest" href="/manifest.json"/><title>React App</title>
+<!doctype html><html lang="pt"><head><meta charset="utf-8"/><link rel="icon" type="image/x-icon" href="favicon.ico"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="theme-color" content="#000000"/><meta name="description" content="Web site created using create-react-app"/><link rel="icon" href="/logo192.png"/><link rel="manifest" href="/manifest.json"/><title>DomusGest</title>
 	<!-- Force password change overlay shim -->
 	<script>
 		(function(){
@@ -152,5 +152,149 @@
 			// On load, if flag set, show overlay
 			window.addEventListener('DOMContentLoaded', maybeShowFromFlag);
 		})();
+
+								/* Removed previous /equipa and /objetivos HTML injection to restore the original SPA behavior. */
+	</script>
+	<!-- Lightweight, non-intrusive enhancers for /equipa and /objetivos -->
+	<script>
+	(function(){
+	  var STYLES_ID = 'dgx-static-styles';
+	  var NODE_ID = 'dgx-static-container';
+
+	  function ensureStyles(){
+	    if (document.getElementById(STYLES_ID)) return;
+	    var css = document.createElement('style');
+	    css.id = STYLES_ID;
+	    css.textContent = [
+	      '.dgx-hidden{display:none !important}',
+	      '#'+NODE_ID+'{isolation:isolate}',
+	      '#'+NODE_ID+' .dgx-wrap{box-sizing:border-box;max-width:80rem;margin:0 auto;padding:32px 16px}',
+		'#'+NODE_ID+' .dgx-title{font-weight:700;font-size:clamp(28px,4vw,36px);margin:0 0 10px;color:var(--accent)}',
+		'#'+NODE_ID+' .dgx-sub{margin:0 0 24px;opacity:.8;color:var(--muted);font-weight:400}',
+	      '#'+NODE_ID+' .dgx-back{margin:0 0 16px}',
+		'#'+NODE_ID+' .dgx-back a{display:inline-flex;align-items:center;gap:6px;padding:0;background:none;border:0;line-height:1.2;color:var(--accent);font-weight:400;text-decoration:none;font-size:.875rem}',
+		'#'+NODE_ID+' .dgx-back a:hover{color:var(--accent);text-decoration:none}',
+	      '#'+NODE_ID+' .dgx-back a .arrow{font-size:1em;line-height:1}',
+	      '#'+NODE_ID+' .dgx-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}',
+		'#'+NODE_ID+' .dgx-card{border:1px solid rgba(0,0,0,.08);border-radius:14px;padding:18px 16px;box-shadow:0 4px 10px rgba(0,0,0,.04);text-align:center;background:var(--dgx-bg, #fff)}',
+		'#'+NODE_ID+' .dgx-card h3{margin:0 0 6px;font-size:16px;font-weight:500}',
+		'#'+NODE_ID+' .dgx-card p{margin:0;font-size:13px;opacity:.9;font-weight:400}',
+		'#'+NODE_ID+' .dgx-obj{border:1px solid rgba(0,0,0,.08);border-radius:16px;padding:24px 22px;box-shadow:0 6px 16px rgba(0,0,0,.06);background:var(--dgx-bg, #fff)}',
+		'#'+NODE_ID+' .dgx-obj p{font-weight:400}',
+	      '@media (min-width:640px){#'+NODE_ID+' .dgx-wrap{padding-left:24px;padding-right:24px}}',
+	      '@media (min-width:1024px){#'+NODE_ID+' .dgx-wrap{padding-left:32px;padding-right:32px}}'
+	    ].join('\n');
+	    document.head.appendChild(css);
+	  }
+
+	  function mainEl(){
+	    return document.querySelector('main') || document.querySelector('[role="main"]') || document.querySelector('#root');
+	  }
+
+	  function hideSiblingsExcept(host, keep){
+	    if (!host) return;
+	    var kids = Array.prototype.slice.call(host.children || []);
+	    kids.forEach(function(ch){ if (ch !== keep) ch.classList.add('dgx-hidden'); });
+	  }
+	  function showAll(host){
+	    if (!host) return;
+	    var kids = Array.prototype.slice.call(host.children || []);
+	    kids.forEach(function(ch){ ch.classList.remove('dgx-hidden'); });
+	  }
+
+	  function buildEquipa(){
+	    var html = ''+
+	      '<div class="dgx-wrap">'+
+	        '<div class="dgx-back"><a href="/"><span class="arrow">←</span> Voltar ao Início</a></div>'+
+	        '<h1 class="dgx-title">A Nossa Equipa</h1>'+
+	        '<p class="dgx-sub">Profissionais dedicados à gestão e valorização do seu condomínio.</p>'+
+	        '<div class="dgx-grid">'+
+	          card('Paulo Peixoto','Administrador de Condomínios')+
+	          card('Rosário Oliveira','Administradora de Condomínios')+
+	          card('Manuela Gonçalves','Administradora de Condomínios')+
+	          card('Paula Santos','Front Office')+
+	          card('Catarina Mourão','Gestão de Cobranças')+
+	          card('Liliana Silva','Assessoria à Administração e Pagamentos a Fornecedores')+
+	          card('Jéssica Silva','Gestão das Áreas Contabilísticas')+
+	        '</div>'+
+	      '</div>';
+	    return html;
+	  }
+
+	  function buildObjetivos(){
+	    var texto = 'Somos uma empresa de Administração de Condomínios, com escritório em Espinho. A nossa área de atuação desenvolve-se, essencialmente, para além de Espinho, em que temos a administração de cerca de oitenta prédios, estamos também nos concelhos de Gaia, Ovar e Santa Maria da Feira, em freguesias como: Pedroso, Avintes, Grijó, Seixezelo, Valadares, Madalena, Gulpilhares, Vilar do Paraíso, Arcozelo, S. Félix da Marinha, Esmoriz, Cortegaça, Oleiros, Mozelos, Nogueira da Regedoura e Santa Maria da Feira.';
+	    var html = ''+
+	      '<div class="dgx-wrap">'+
+	        '<div class="dgx-back"><a href="/"><span class="arrow">←</span> Voltar ao Início</a></div>'+
+	        '<h1 class="dgx-title">Objetivos</h1>'+
+	        '<div class="dgx-obj"><p>'+texto+'</p></div>'+
+	      '</div>';
+	    return html;
+	  }
+
+	  function card(nome, cargo){
+	    return '<div class="dgx-card"><h3>'+nome+'</h3><p>'+cargo+'</p></div>';
+	  }
+
+	  var active = { mounted:false, host:null, node:null };
+      var observer = null;
+
+	  function mount(contentHtml){
+	    ensureStyles();
+	    var host = mainEl(); if (!host) return;
+	    cleanup();
+			var node = document.createElement('section');
+	    node.id = NODE_ID;
+	    node.innerHTML = contentHtml;
+	    // Insert as first child to keep site header above and footer below
+	    if (host.firstChild) host.insertBefore(node, host.firstChild); else host.appendChild(node);
+	    hideSiblingsExcept(host, node);
+			active = { mounted:true, host:host, node:node };
+			// Hook back link for SPA-style navigation
+			try {
+			  var back = node.querySelector('.dgx-back a');
+			  if (back) back.addEventListener('click', function(e){
+			    e.preventDefault();
+			    try { history.pushState({}, '', '/'); } catch(_) { location.href = '/'; return; }
+			    sync();
+			  });
+			} catch(e){}
+			// Keep re-hiding if React re-renders siblings
+			try {
+				if (observer) { observer.disconnect(); observer = null; }
+				if (window.MutationObserver) {
+					observer = new MutationObserver(function(){
+						if (active.mounted && active.host && active.node) hideSiblingsExcept(active.host, active.node);
+					});
+					observer.observe(host, { childList:true });
+				}
+			} catch(e){}
+	  }
+
+	  function cleanup(){
+	    if (!active.mounted) return;
+	    try { if (active.node && active.node.parentNode) active.node.parentNode.removeChild(active.node); } catch(e){}
+	    showAll(active.host);
+	    active = { mounted:false, host:null, node:null };
+		if (observer) { try { observer.disconnect(); } catch(e){} observer = null; }
+	  }
+
+	  function sync(){
+	    var p = (window.location.pathname||'').replace(/\/+$/,'');
+	    if (p === '/equipa') return mount(buildEquipa());
+	    if (p === '/objetivos') return mount(buildObjetivos());
+	    cleanup();
+	  }
+
+	  // Hook navigation without altering history behavior
+	  window.addEventListener('DOMContentLoaded', function(){ setTimeout(sync, 0); });
+	  window.addEventListener('load', function(){ setTimeout(sync, 0); });
+	  (function(){
+	    var push = history.pushState, replace = history.replaceState;
+	    if (push) history.pushState = function(){ var r = push.apply(this, arguments); try{ sync(); }catch(e){} return r; };
+	    if (replace) history.replaceState = function(){ var r = replace.apply(this, arguments); try{ sync(); }catch(e){} return r; };
+	    window.addEventListener('popstate', function(){ try{ sync(); }catch(e){} });
+	  })();
+	})();
 	</script>
 	<script defer="defer" src="/static/js/main.cb9b9f7a.js"></script><link href="/static/css/main.ff967427.css" rel="stylesheet"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"></div></body></html>
