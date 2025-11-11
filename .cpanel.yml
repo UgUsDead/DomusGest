@@ -1,0 +1,18 @@
+---
+deployment:
+  tasks:
+    # Fail fast on any error
+    - /bin/bash -lc 'set -e'
+
+    # Set deploy target to your cPanel account's public_html
+    - /bin/bash -lc 'export DEPLOYPATH="$HOME/public_html" && echo "Deploying to: $DEPLOYPATH"'
+
+    # Ensure destination exists
+    - /bin/bash -lc 'mkdir -p "$DEPLOYPATH"'
+
+    # Sync ONLY the built frontend (backend/public) to public_html, remove old files not in source
+    - /bin/bash -lc 'rsync -a --delete backend/public/ "$DEPLOYPATH"/'
+
+    # Optional: ensure SPA routes work (deep links like /equipa, /objetivos)
+    # Create a minimal .htaccess if one does not already exist
+    - /bin/bash -lc 'if [ ! -f "$DEPLOYPATH/.htaccess" ]; then cat > "$DEPLOYPATH/.htaccess" <<"HTACCESS"\n<IfModule mod_rewrite.c>\n  RewriteEngine On\n  RewriteBase /\n  # Allow existing files or directories\n  RewriteCond %{REQUEST_FILENAME} -f [OR]\n  RewriteCond %{REQUEST_FILENAME} -d\n  RewriteRule ^ - [L]\n  # Fallback to index.html for client-side routes\n  RewriteRule . /index.html [L]\n</IfModule>\nHTACCESS\n; fi'
