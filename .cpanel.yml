@@ -1,18 +1,19 @@
 ---
 deployment:
   tasks:
-    # Fail fast on any error
     - /bin/bash -lc 'set -e'
-
-    # Set deploy target to your cPanel account's public_html
-    - /bin/bash -lc 'export DEPLOYPATH="$HOME/public_html" && echo "Deploying to: $DEPLOYPATH"'
-
-    # Ensure destination exists
-    - /bin/bash -lc 'mkdir -p "$DEPLOYPATH"'
-
-    # Sync ONLY the built frontend (backend/public) to public_html, remove old files not in source
-    - /bin/bash -lc 'rsync -a --delete backend/public/ "$DEPLOYPATH"/'
-
-    # Optional: ensure SPA routes work (deep links like /equipa, /objetivos)
-    # Create a minimal .htaccess if one does not already exist
-    - /bin/bash -lc 'if [ ! -f "$DEPLOYPATH/.htaccess" ]; then cat > "$DEPLOYPATH/.htaccess" <<"HTACCESS"\n<IfModule mod_rewrite.c>\n  RewriteEngine On\n  RewriteBase /\n  # Allow existing files or directories\n  RewriteCond %{REQUEST_FILENAME} -f [OR]\n  RewriteCond %{REQUEST_FILENAME} -d\n  RewriteRule ^ - [L]\n  # Fallback to index.html for client-side routes\n  RewriteRule . /index.html [L]\n</IfModule>\nHTACCESS\n; fi'
+    - /bin/bash -lc 'SRC="$HOME/repositories/DomusGest/backend/public"; DST="$HOME/public_html"; mkdir -p "$DST"'
+    - /bin/bash -lc 'find "$DST" -mindepth 1 -maxdepth 1 ! -name ".well-known" ! -name ".htaccess" -exec rm -rf {} +'
+    - /bin/bash -lc 'cp -a "$SRC"/. "$DST"/'
+    - /bin/bash -lc 'if [ ! -f "$DST/.htaccess" ]; then cat > "$DST/.htaccess" <<'\''HTX'\''; fi'
+    - /bin/bash -lc 'cat > "$DST/.htaccess" <<'\''HTX'\'''
+    - /bin/bash -lc 'DirectoryIndex index.html index.php'
+    - /bin/bash -lc '<IfModule mod_rewrite.c>'
+    - /bin/bash -lc '  RewriteEngine On'
+    - /bin/bash -lc '  RewriteBase /'
+    - /bin/bash -lc '  RewriteCond %{REQUEST_FILENAME} -f [OR]'
+    - /bin/bash -lc '  RewriteCond %{REQUEST_FILENAME} -d'
+    - /bin/bash -lc '  RewriteRule ^ - [L]'
+    - /bin/bash -lc '  RewriteRule . /index.html [L]'
+    - /bin/bash -lc '</IfModule>'
+    - /bin/bash -lc 'HTX'
