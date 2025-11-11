@@ -16,8 +16,11 @@ const PORT = Number(process.env.PORT) || 3002;
 
 // Middleware
 // Enable CORS and allow custom headers used by the frontend (admin-permissions, maintenance-id, etc.)
+// If WEB_ORIGIN is defined, restrict CORS to that origin; otherwise allow any (useful for local/dev).
+const WEB_ORIGIN = process.env.WEB_ORIGIN && String(process.env.WEB_ORIGIN).trim();
 app.use(cors({
-  origin: true,
+  origin: WEB_ORIGIN ? [WEB_ORIGIN] : true,
+  credentials: true,
   allowedHeaders: ['Origin','X-Requested-With','Content-Type','Accept','admin-permissions','admin-id','admin-username','maintenance-id']
 }));
 // Ensure preflight requests are handled for all routes
@@ -63,8 +66,8 @@ function getAdminAllowedCondos(req) {
   }
 }
 
-// Ensure uploads directory exists
-const uploadsDir = path.join(__dirname, 'uploads');
+// Ensure uploads directory exists (can be overridden via env for cPanel)
+const uploadsDir = process.env.UPLOADS_DIR ? path.resolve(process.env.UPLOADS_DIR) : path.join(__dirname, 'uploads');
 if (!fs.existsSync(uploadsDir)) {
   fs.mkdirSync(uploadsDir, { recursive: true });
 }
@@ -6725,7 +6728,12 @@ app.delete('/api/messages/:id', (req, res) => {
     res.json({ message: 'Message deleted successfully' });
   });
 });
-// Start server
-app.listen(PORT, () => {
-  console.log(`✅ Server is running on port ${PORT}`);
-});
+// Start server (works for local dev and cPanel Passenger)
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`✅ Server is running on port ${PORT}`);
+  });
+}
+
+// Export app for environments (e.g., Passenger) that import the Express app
+module.exports = app;
