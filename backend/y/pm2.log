@@ -274,3 +274,60 @@
 2025-11-11T15:30:45: PM2 log: ===============================================================================
 2025-11-11T15:30:46: PM2 log: App [domusgest-backend:0] starting in -fork mode-
 2025-11-11T15:30:46: PM2 log: App [domusgest-backend:0] online
+2025-11-12T09:56:30: PM2 log: ===============================================================================
+2025-11-12T09:56:30: PM2 log: --- New PM2 Daemon started ----------------------------------------------------
+2025-11-12T09:56:30: PM2 log: Time                 : Wed Nov 12 2025 09:56:30 GMT+0000 (Hora padrão da Europa Ocidental)
+2025-11-12T09:56:30: PM2 log: PM2 version          : 6.0.13
+2025-11-12T09:56:30: PM2 log: Node.js version      : 22.18.0
+2025-11-12T09:56:30: PM2 log: Current arch         : x64
+2025-11-12T09:56:30: PM2 log: PM2 home             : C:\DomusGest\backend\y
+2025-11-12T09:56:30: PM2 log: PM2 PID file         : C:\DomusGest\backend\y\pm2.pid
+2025-11-12T09:56:30: PM2 log: RPC socket file      : \\.\pipe\rpc.sock
+2025-11-12T09:56:30: PM2 log: BUS socket file      : \\.\pipe\pub.sock
+2025-11-12T09:56:30: PM2 log: Application log path : C:\DomusGest\backend\y\logs
+2025-11-12T09:56:30: PM2 log: Worker Interval      : 30000
+2025-11-12T09:56:30: PM2 log: Process dump file    : C:\DomusGest\backend\y\dump.pm2
+2025-11-12T09:56:30: PM2 log: Concurrent actions   : 2
+2025-11-12T09:56:30: PM2 log: SIGTERM timeout      : 1600
+2025-11-12T09:56:30: PM2 log: Runtime Binary       : C:\Program Files\nodejs\node.exe
+2025-11-12T09:56:30: PM2 log: ===============================================================================
+2025-11-12T09:56:30: PM2 log: App [domusgest-backend:0] starting in -fork mode-
+2025-11-12T09:56:30: PM2 log: App [domusgest-backend:0] online
+2025-11-12T12:07:18: PM2 log: ===============================================================================
+2025-11-12T12:07:18: PM2 log: --- New PM2 Daemon started ----------------------------------------------------
+2025-11-12T12:07:18: PM2 log: Time                 : Wed Nov 12 2025 12:07:18 GMT+0000 (Hora padrão da Europa Ocidental)
+2025-11-12T12:07:18: PM2 log: PM2 version          : 6.0.13
+2025-11-12T12:07:18: PM2 log: Node.js version      : 22.18.0
+2025-11-12T12:07:18: PM2 log: Current arch         : x64
+2025-11-12T12:07:18: PM2 log: PM2 home             : C:\DomusGest\backend\y
+2025-11-12T12:07:18: PM2 log: PM2 PID file         : C:\DomusGest\backend\y\pm2.pid
+2025-11-12T12:07:18: PM2 log: RPC socket file      : \\.\pipe\rpc.sock
+2025-11-12T12:07:18: PM2 log: BUS socket file      : \\.\pipe\pub.sock
+2025-11-12T12:07:18: PM2 log: Application log path : C:\DomusGest\backend\y\logs
+2025-11-12T12:07:18: PM2 log: Worker Interval      : 30000
+2025-11-12T12:07:18: PM2 log: Process dump file    : C:\DomusGest\backend\y\dump.pm2
+2025-11-12T12:07:18: PM2 log: Concurrent actions   : 2
+2025-11-12T12:07:18: PM2 log: SIGTERM timeout      : 1600
+2025-11-12T12:07:18: PM2 log: Runtime Binary       : C:\Program Files\nodejs\node.exe
+2025-11-12T12:07:18: PM2 log: ===============================================================================
+2025-11-12T12:07:18: PM2 log: App [domusgest-backend:0] starting in -fork mode-
+2025-11-12T12:07:18: PM2 log: App [domusgest-backend:0] online
+2025-11-12T15:18:31: PM2 log: ===============================================================================
+2025-11-12T15:18:31: PM2 log: --- New PM2 Daemon started ----------------------------------------------------
+2025-11-12T15:18:31: PM2 log: Time                 : Wed Nov 12 2025 15:18:31 GMT+0000 (Hora padrão da Europa Ocidental)
+2025-11-12T15:18:31: PM2 log: PM2 version          : 6.0.13
+2025-11-12T15:18:32: PM2 log: Node.js version      : 22.18.0
+2025-11-12T15:18:32: PM2 log: Current arch         : x64
+2025-11-12T15:18:32: PM2 log: PM2 home             : C:\DomusGest\backend\y
+2025-11-12T15:18:32: PM2 log: PM2 PID file         : C:\DomusGest\backend\y\pm2.pid
+2025-11-12T15:18:32: PM2 log: RPC socket file      : \\.\pipe\rpc.sock
+2025-11-12T15:18:32: PM2 log: BUS socket file      : \\.\pipe\pub.sock
+2025-11-12T15:18:32: PM2 log: Application log path : C:\DomusGest\backend\y\logs
+2025-11-12T15:18:32: PM2 log: Worker Interval      : 30000
+2025-11-12T15:18:32: PM2 log: Process dump file    : C:\DomusGest\backend\y\dump.pm2
+2025-11-12T15:18:32: PM2 log: Concurrent actions   : 2
+2025-11-12T15:18:32: PM2 log: SIGTERM timeout      : 1600
+2025-11-12T15:18:32: PM2 log: Runtime Binary       : C:\Program Files\nodejs\node.exe
+2025-11-12T15:18:32: PM2 log: ===============================================================================
+2025-11-12T15:18:32: PM2 log: App [domusgest-backend:0] starting in -fork mode-
+2025-11-12T15:18:32: PM2 log: App [domusgest-backend:0] online

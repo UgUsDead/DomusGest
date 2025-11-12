@@ -4583,3 +4583,87 @@ CSV Headers: [
 ✅ Default admin user created (admin/admin!!)
 ✅ Default maintenance user created (Manut2/Manut2!!)
 ✅ Default maintenance user created (Manut3/Manut3!!)
+✅ Server is running on port 5000
+✅ Connected to SQLite database at: C:\DomusGest\data\domusgest.db
+✅ Users table ready
+✅ Assembleias table ready
+✅ Ocorrencia images table ready
+✅ Maintenance users table ready
+✅ Condominiums table ready
+✅ User condominiums table ready
+✅ app_meta table ready
+ℹ️ Password reset to NIF migration already applied
+✅ Admin notes table ready
+✅ Notifications table ready
+✅ User notifications table ready
+✅ Admin Notifications link table ready
+✅ Assembleia files table ready
+✅ admin_messages table ready
+✅ admin_message_targets table ready
+✅ admin_message_condominiums table ready
+✅ admin_message_files table ready
+✅ User messages table ready
+✅ admin_notifications table ready
+✅ Profile changes table ready
+✅ Ocorrencias table ready
+✅ Admins table ready
+✅ Default admin user created (admin/admin!!)
+✅ Default maintenance user created (Manut/Manut!!)
+✅ Default maintenance user created (Manut2/Manut2!!)
+✅ Default maintenance user created (Manut3/Manut3!!)
+✅ Server is running on port 5000
+✅ Connected to SQLite database at: C:\DomusGest\data\domusgest.db
+✅ Users table ready
+✅ Assembleias table ready
+✅ Assembleia files table ready
+✅ Maintenance users table ready
+✅ User messages table ready
+✅ Condominiums table ready
+✅ User condominiums table ready
+✅ Ocorrencia images table ready
+ℹ️ Password reset to NIF migration already applied
+✅ Admin notes table ready
+✅ Notifications table ready
+✅ User notifications table ready
+✅ Admin Notifications link table ready
+✅ Profile changes table ready
+✅ admin_messages table ready
+✅ admin_message_targets table ready
+✅ admin_message_condominiums table ready
+✅ admin_message_files table ready
+✅ Admins table ready
+✅ Ocorrencias table ready
+✅ app_meta table ready
+✅ admin_notifications table ready
+✅ Default maintenance user created (Manut/Manut!!)
+✅ Default admin user created (admin/admin!!)
+✅ Default maintenance user created (Manut2/Manut2!!)
+✅ Default maintenance user created (Manut3/Manut3!!)
+✅ Server is running on port 5000
+✅ Connected to SQLite database at: C:\DomusGest\data\domusgest.db
+✅ Users table ready
+✅ Assembleia files table ready
+✅ Ocorrencia images table ready
+✅ User messages table ready
+✅ Condominiums table ready
+✅ Ocorrencias table ready
+✅ app_meta table ready
+✅ admin_notifications table ready
+✅ Admin notes table ready
+✅ Notifications table ready
+✅ User notifications table ready
+✅ Assembleias table ready
+ℹ️ Password reset to NIF migration already applied
+✅ Admins table ready
+✅ Admin Notifications link table ready
+✅ Profile changes table ready
+✅ admin_messages table ready
+✅ admin_message_targets table ready
+✅ admin_message_condominiums table ready
+✅ admin_message_files table ready
+✅ Maintenance users table ready
+✅ User condominiums table ready
+✅ Default maintenance user created (Manut/Manut!!)
+✅ Default admin user created (admin/admin!!)
+✅ Default maintenance user created (Manut2/Manut2!!)
+✅ Default maintenance user created (Manut3/Manut3!!)
