@@ -69,11 +69,41 @@ $headers[] = 'Reply-To: '.$email;
 $headers[] = 'MIME-Version: 1.0';
 $headers[] = 'Content-Type: text/plain; charset=UTF-8';
 
-$sent = @mail($to, $finalSubject, $body, implode("\r\n", $headers));
+$headerStr = implode("\r\n", $headers);
+$envelopeSender = '-f no-reply@domusgest.net';
+$sent = @mail($to, $finalSubject, $body, $headerStr, $envelopeSender);
 if (!$sent) {
-    http_response_code(500);
-    echo json_encode(['ok'=>false,'error'=>'Falha ao enviar email']);
-    exit;
+    // Fallback attempt using sendmail directly if available
+    $fallbackOk = false;
+    $sendmailPath = ini_get('sendmail_path');
+    if ($sendmailPath) {
+        $cmd = $sendmailPath.' -t -i';
+        $proc = @popen($cmd, 'w');
+        if ($proc) {
+            $rawMsg = '';
+            $rawMsg .= 'To: '.$to."\n";
+            $rawMsg .= 'Subject: '.$finalSubject."\n";
+            $rawMsg .= 'From: DomusGest Website <no-reply@domusgest.net>'."\n";
+            $rawMsg .= 'Reply-To: '.$email."\n";
+            $rawMsg .= "MIME-Version: 1.0\n";
+            $rawMsg .= "Content-Type: text/plain; charset=UTF-8\n";
+            $rawMsg .= "X-DomusGest-Fallback: 1\n";
+            $rawMsg .= "\n".$body; // blank line separates headers from body
+            @fwrite($proc, $rawMsg);
+            $code = @pclose($proc);
+            if ($code === 0) $fallbackOk = true;
+        }
+    }
+    if (!$fallbackOk) {
+        // Log failure for diagnostics
+        $logLine = '['.date('c').'] IP='.$ip.' email_fail to='.$to.' subject='.str_replace(["\n","\r"],' ',$finalSubject);
+        $lastErr = error_get_last();
+        if ($lastErr) $logLine .= ' php_error='.preg_replace('/\s+/',' ',$lastErr['message']);
+        @file_put_contents(__DIR__.'/contacto-send.log', $logLine."\n", FILE_APPEND);
+        http_response_code(500);
+        echo json_encode(['ok'=>false,'error'=>'Falha ao enviar email']);
+        exit;
+    }
 }
 
-echo json_encode(['ok'=>true]);
+echo json_encode(['ok'=>true,'method'=>$sent?'mail()':'sendmail']);

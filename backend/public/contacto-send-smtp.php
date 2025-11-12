@@ -68,4 +68,15 @@ $body = "Nome: $name\nEmail: $email\nIP: $ip\n\nMensagem:\n$message\n";
 //   echo json_encode(['ok'=>false,'error'=>'SMTP falhou']);
 // }
 
-echo json_encode(['ok'=>false,'error'=>'PHPMailer não configurado. Use contacto-send.php ou conclua a configuração SMTP.']);
+// Attempt basic PHP mail() as a last resort fallback before failing
+$headers = [];
+$headers[] = 'From: DomusGest Website <no-reply@domusgest.net>';
+$headers[] = 'Reply-To: '.$email;
+$headers[] = 'MIME-Version: 1.0';
+$headers[] = 'Content-Type: text/plain; charset=UTF-8';
+$envelope = '-f no-reply@domusgest.net';
+$ok = @mail($to, $finalSubject, $body, implode("\r\n", $headers), $envelope);
+if ($ok) { echo json_encode(['ok'=>true,'method'=>'mail() fallback']); exit; }
+
+http_response_code(500);
+echo json_encode(['ok'=>false,'error'=>'PHPMailer/SMTP não configurado e fallback falhou.']);
