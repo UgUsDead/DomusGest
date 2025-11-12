@@ -1,0 +1,10 @@
+{
+  "name": "domusgest/public",
+  "description": "Public web root dependencies for DomusGest (PHPMailer for SMTP)",
+  "type": "project",
+  "require": {
+    "phpmailer/phpmailer": "^6.9"
+  },
+  "license": "proprietary",
+  "minimum-stability": "stable"
+}
