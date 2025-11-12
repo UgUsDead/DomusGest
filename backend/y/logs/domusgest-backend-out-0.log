@@ -4667,3 +4667,31 @@ CSV Headers: [
 ✅ Default admin user created (admin/admin!!)
 ✅ Default maintenance user created (Manut2/Manut2!!)
 ✅ Default maintenance user created (Manut3/Manut3!!)
+✅ Server is running on port 5000
+✅ Connected to SQLite database at: C:\DomusGest\data\domusgest.db
+✅ Users table ready
+✅ Maintenance users table ready
+✅ admin_notifications table ready
+✅ Admins table ready
+✅ Assembleia files table ready
+✅ Condominiums table ready
+✅ User condominiums table ready
+ℹ️ Password reset to NIF migration already applied
+✅ Admin notes table ready
+✅ Notifications table ready
+✅ User notifications table ready
+✅ Admin Notifications link table ready
+✅ Profile changes table ready
+✅ admin_messages table ready
+✅ User messages table ready
+✅ admin_message_condominiums table ready
+✅ Ocorrencia images table ready
+✅ app_meta table ready
+✅ Assembleias table ready
+✅ admin_message_targets table ready
+✅ Ocorrencias table ready
+✅ admin_message_files table ready
+✅ Default admin user created (admin/admin!!)
+✅ Default maintenance user created (Manut/Manut!!)
+✅ Default maintenance user created (Manut2/Manut2!!)
+✅ Default maintenance user created (Manut3/Manut3!!)

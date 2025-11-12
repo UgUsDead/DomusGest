@@ -297,4 +297,86 @@
 	  })();
 	})();
 	</script>
+	<!-- Intercept contact forms using mailto: and send via PHP endpoint without prompting the user -->
+	<script>
+	(function(){
+	  var ENDPOINT = '/contacto-send.php';
+	  var STATUS_CLASS = 'dgx-contact-status';
+
+	  function pick(el){ return el && (el.value||'').trim(); }
+	  function byNames(form, names){
+	    names = (names||[]).map(function(s){return s.toLowerCase();});
+	    var els = form.querySelectorAll('input,textarea');
+	    for (var i=0;i<els.length;i++){
+	      var e = els[i];
+	      var id = (e.id||'').toLowerCase();
+	      var nm = (e.name||'').toLowerCase();
+	      var ph = (e.placeholder||'').toLowerCase();
+	      var lbl = '';
+	      try { var lab = form.querySelector('label[for="'+e.id+'"]'); if (lab) lbl = (lab.textContent||'').toLowerCase(); } catch(_){ }
+	      if (names.some(function(n){ return id.indexOf(n)>=0 || nm.indexOf(n)>=0 || ph.indexOf(n)>=0 || lbl.indexOf(n)>=0; })) return e;
+	    }
+	    return null;
+	  }
+
+	  function statusEl(form){
+	    var s = form.querySelector('.'+STATUS_CLASS);
+	    if (!s){ s = document.createElement('div'); s.className = STATUS_CLASS; s.style.marginTop='8px'; s.style.fontSize='14px'; s.style.minHeight='1.2em'; form.appendChild(s); }
+	    s.style.color = '#333';
+	    s.textContent = '';
+	    return s;
+	  }
+
+	  function bind(form){
+	    if (form.__dgx_bound) return; form.__dgx_bound = true;
+	    var action = (form.getAttribute('action')||'').trim();
+	    if (!/^mailto:/i.test(action)) return; // only transform mailto forms
+	    form.addEventListener('submit', function(ev){
+	      ev.preventDefault();
+	      var out = statusEl(form);
+	      var nameEl = byNames(form, ['name','nome']);
+	      var emailEl = byNames(form, ['email','e-mail','from']);
+	      var subjEl = byNames(form, ['subject','assunto']);
+	      var msgEl  = byNames(form, ['message','mensagem','texto','conteudo','menssage']);
+	      var payload = {
+	        name: pick(nameEl),
+	        email: pick(emailEl),
+	        subject: pick(subjEl) || 'Contacto do site',
+	        message: pick(msgEl),
+	        website: '' // honeypot
+	      };
+	      // basic validation (no prompts)
+	      if (!payload.email || !payload.message){
+	        out.style.color = '#b00020';
+	        out.textContent = 'Preencha o email e a mensagem.';
+	        return;
+	      }
+	      out.style.color = '#555';
+	      out.textContent = 'A enviar…';
+	      fetch(ENDPOINT, {
+	        method:'POST',
+	        headers:{ 'Content-Type':'application/json' },
+	        body: JSON.stringify(payload)
+	      }).then(function(resp){
+	        return resp.json().catch(function(){return {};}).then(function(data){ return { ok: resp.ok && data && data.ok === true, data:data, status:resp.status }; });
+	      }).then(function(r){
+	        if (r.ok){ out.style.color = '#0a7a25'; out.textContent = 'Enviado com sucesso.'; form.reset && form.reset(); }
+	        else { out.style.color = '#b00020'; out.textContent = (r.data && r.data.error) ? r.data.error : ('Erro '+r.status); }
+	      }).catch(function(){ out.style.color = '#b00020'; out.textContent = 'Falha no envio.'; });
+	    });
+	  }
+
+	  function scan(){
+	    var forms = document.querySelectorAll('form');
+	    for (var i=0;i<forms.length;i++) bind(forms[i]);
+	  }
+
+	  window.addEventListener('DOMContentLoaded', scan);
+	  window.addEventListener('load', scan);
+	  if (window.MutationObserver){
+	    var obs = new MutationObserver(function(){ scan(); });
+	    obs.observe(document.documentElement, { childList:true, subtree:true });
+	  }
+	})();
+	</script>
 	<script defer="defer" src="/static/js/main.be1e6c49.js"></script><link href="/static/css/main.61030e78.css" rel="stylesheet"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"></div></body></html>
